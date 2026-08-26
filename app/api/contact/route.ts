@@ -1,30 +1,71 @@
 import { NextResponse } from "next/server";
+import { Resend } from "resend";
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: Request) {
-  const formLink = process.env.GOOGLE_FORM_LINK;
-  if (!formLink) {
-    return new NextResponse("Please configure the env variables", {
-      status: 500,
-    });
-  }
-
-  // configure this according to your google form
-  const fieldIdName = process.env.GOOGLE_FORM_FIELD_ID_NAME;
-  const fieldIdEmail = process.env.GOOGLE_FORM_FIELD_ID_EMAIL;
-  const fieldIdMessage = process.env.GOOGLE_FORM_FIELD_ID_MESSAGE;
-  const fieldIdSocial = process.env.GOOGLE_FORM_FIELD_ID_SOCIAL;
-
   try {
     const body = await req.json();
+
     const { name, message, social, email } = body;
 
-    const res = await fetch(
-      `${formLink}/formResponse?${fieldIdName}=${name}&${fieldIdEmail}=${email}&${fieldIdMessage}=${message}&${fieldIdSocial}=${social}`
-    );
+    if (!name || !email || !message) {
+      return NextResponse.json(
+        { error: "Name, email and message are required" },
+        { status: 400 }
+      );
+    }
 
-    return NextResponse.json("Success!");
+    const { data, error } = await resend.emails.send({
+      from: "Portfolio <onboarding@resend.dev>",
+      to: ["abdelghfarsalah8@gmail.com"],
+      subject: `New Message from ${name}`,
+      html: `
+        <div style="font-family: Arial, sans-serif; line-height: 1.6;">
+          <h2>New Contact Message</h2>
+
+          <p>
+            <strong>Name:</strong> ${name}
+          </p>
+
+          <p>
+            <strong>Email:</strong> ${email}
+          </p>
+
+          <p>
+            <strong>Social:</strong> ${social || "Not provided"}
+          </p>
+
+          <p>
+            <strong>Message:</strong>
+          </p>
+
+          <p>
+            ${message}
+          </p>
+        </div>
+      `,
+    });
+
+    if (error) {
+      console.error(error);
+
+      return NextResponse.json(
+        { error: "Failed to send email" },
+        { status: 500 }
+      );
+    }
+
+    return NextResponse.json({
+      success: true,
+      data,
+    });
   } catch (error) {
-    console.log(error);
-    return new NextResponse("Internal error", { status: 500 });
+    console.error(error);
+
+    return NextResponse.json(
+      { error: "Internal server error" },
+      { status: 500 }
+    );
   }
 }

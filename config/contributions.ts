@@ -11,7 +11,7 @@ export const contributionsUnsorted: contributionsInterface[] = [
     contibutionDescription:
       "Open-source Next.js portfolio template. Trusted and forked by developers worldwide (130+ GitHub stars).",
     repoOwner: "namanbarkiya",
-    link: "https://github.com/namanbarkiya/minimal-next-portfolio",
+    link: "https://github.com/Abdelghfarsalah/portfolio",
   },
   {
     repo: "niya-saas-template",

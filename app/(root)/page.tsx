@@ -77,70 +77,238 @@ export default function IndexPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }}
       />
 
-      <section className="space-y-6 pb-8 pt-6 mb-0 md:pb-12 md:py-20 lg:py-32 h-screen flex items-center">
-        <div className="container flex max-w-[64rem] flex-col items-center gap-4 text-center -mt-20">
-          <Image
-            src={profileImg}
-            height={100}
-            width={100}
-            sizes="100vw"
-            className="bg-primary rounded-full mb-0 h-auto md:mb-2 w-[60%] max-w-[16rem] border-8 border-primary"
-            alt="Abdelghfar Khairallah - Applied Frontend Developer Portfolio"
-            priority
-          />
-          <AnimatedText
-            as="h1"
-            delay={0.2}
-            className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl"
-          >
-            Abdelghfar Khairallah
-          </AnimatedText>
-          <AnimatedText
-            as="h3"
-            delay={0.4}
-            className="font-heading text-base sm:text-xl md:text-xl lg:text-2xl"
-          >
-            Abdelghfar Khairallah
-          </AnimatedText>
-          <div className="mt-4 max-w-[42rem] text-center">
-            <p className="leading-normal text-muted-foreground text-sm sm:text-base">
-              Software engineer working at the intersection of AI, data, and
-              scalable software systems.
-            </p>
-          </div>
+      <section className="flex items-center pt-16 md:pt-24 lg:pt-32">
+        <div className="container mx-auto max-w-6xl">
+          <div className="flex flex-col-reverse items-center gap-10 md:flex-row md:justify-between md:gap-16">
+            {/* Content */}
+            <div className="flex max-w-2xl flex-1 flex-col items-center text-center md:items-start md:text-left">
+              <AnimatedText
+                as="h1"
+                delay={0.2}
+                className="font-heading text-4xl font-bold sm:text-5xl md:text-6xl lg:text-7xl"
+              >
+                Abdelghfar Khairallah
+              </AnimatedText>
 
-          <div className="flex flex-col mt-10 items-center justify-center sm:flex-row sm:space-x-4 gap-3">
-            <AnimatedText delay={0.6}>
-              <Link
-                href={"/resume"}
-                target="_blank"
-                className={cn(buttonVariants({ size: "lg" }))}
-                aria-label="View resume"
+              <AnimatedText
+                as="h3"
+                delay={0.4}
+                className="mt-3 font-heading text-lg text-muted-foreground sm:text-xl md:text-2xl"
               >
-                <Icons.post className="w-4 h-4 mr-2" /> Resume
-              </Link>
+                Front-End Software Engineer
+              </AnimatedText>
+
+              <div className="mt-6 max-w-[42rem]">
+                <p className="text-sm leading-7 text-muted-foreground sm:text-base md:text-lg">
+                  Front-End Software Engineer specializing in React and Next.js,
+                  with experience building scalable, responsive, and
+                  production-ready web applications. Skilled in TypeScript,
+                  state management, API integration, and modern UI development,
+                  with a strong focus on clean architecture, performance, and
+                  delivering seamless user experiences.
+                </p>
+              </div>
+
+              {/* Buttons */}
+              <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row md:items-start">
+                <AnimatedText delay={0.6}>
+                  <Link
+                    href="AbdelghAffar Khairallah,Frontend Developer (2).pdf"
+                    target="_blank"
+                    className={cn(buttonVariants({ size: "lg" }))}
+                    aria-label="View resume"
+                  >
+                    <Icons.post className="mr-2 h-4 w-4" />
+                    Resume
+                  </Link>
+                </AnimatedText>
+
+                <AnimatedText delay={0.8}>
+                  <Link
+                    href="/contact"
+                    rel="noreferrer"
+                    className={cn(
+                      buttonVariants({
+                        variant: "outline",
+                        size: "lg",
+                      })
+                    )}
+                    aria-label="Contact Abdelghfar Khairallah"
+                  >
+                    <Icons.contact className="mr-2 h-4 w-4" />
+                    Contact
+                  </Link>
+                </AnimatedText>
+              </div>
+            </div>
+            {/* HERO IMAGE */}
+            <AnimatedText
+              delay={0.2}
+              className="relative flex w-full justify-center md:w-[48%]"
+            >
+              <div className="relative h-[520px] w-[380px] sm:h-[580px] sm:w-[430px] lg:h-[650px] lg:w-[500px]">
+                {/* ========================================
+        BACK GLOW
+    ======================================== */}
+                <div
+                  className="
+        absolute
+        right-[5%]
+        top-[15%]
+        h-[300px]
+        w-[300px]
+        rounded-full
+        bg-primary/20
+        blur-[100px]
+      "
+                />
+
+                {/* ========================================
+        DOT PATTERN
+    ======================================== */}
+                <div
+                  className="
+        absolute
+        -right-4
+        top-0
+        z-0
+        h-[180px]
+        w-[180px]
+        opacity-60
+        [background-image:radial-gradient(circle,currentColor_1.5px,transparent_1.5px)]
+        [background-size:14px_14px]
+        text-primary
+      "
+                />
+
+                {/* ========================================
+        OUTER BORDER
+    ======================================== */}
+                <div
+                  className="
+        absolute
+        right-[2%]
+        top-[5%]
+        z-[1]
+        h-[88%]
+        w-[78%]
+        rotate-[-7deg]
+        rounded-[28px]
+        border-2
+        border-primary
+        opacity-80
+      "
+                />
+
+                {/* ========================================
+        BACKGROUND CARD
+    ======================================== */}
+                <div
+                  className="
+        absolute
+        left-[8%]
+        top-[10%]
+        z-[2]
+        h-[88%]
+        w-[78%]
+        rotate-[5deg]
+        rounded-[28px]
+        bg-primary/20
+        shadow-2xl
+        backdrop-blur-sm
+      "
+                />
+
+                {/* ========================================
+        IMAGE CARD
+    ======================================== */}
+                <div
+                  className="
+        absolute
+        left-[5%]
+        top-[5%]
+        z-[10]
+        h-[90%]
+        w-[80%]
+        overflow-hidden
+        rounded-[28px]
+        border
+        border-white/10
+        bg-muted
+        shadow-2xl
+      "
+                >
+                  <Image
+                    src={profileImg}
+                    alt="Abdelghfar Khairallah"
+                    fill
+                    priority
+                    sizes="(max-width: 768px) 80vw, 500px"
+                    className="
+          object-cover
+          object-top
+          transition-transform
+          duration-700
+          hover:scale-[1.03]
+        "
+                  />
+
+                  {/* Image Overlay */}
+                  <div
+                    className="
+          pointer-events-none
+          absolute
+          inset-0
+          bg-gradient-to-t
+          from-background/30
+          via-transparent
+          to-transparent
+        "
+                  />
+                </div>
+
+                {/* ========================================
+        SMALL DECORATION
+    ======================================== */}
+                <div
+                  className="
+        absolute
+        bottom-[5%]
+        left-0
+        z-[15]
+        h-20
+        w-20
+        rounded-2xl
+        border
+        border-primary/20
+        bg-background/70
+        backdrop-blur-md
+      "
+                />
+              </div>
             </AnimatedText>
-            <AnimatedText delay={0.8}>
-              <Link
-                href={"/contact"}
-                rel="noreferrer"
-                className={cn(
-                  buttonVariants({
-                    variant: "outline",
-                    size: "lg",
-                  })
-                )}
-                aria-label="Contact Abdelghfar Khairallah"
-              >
-                <Icons.contact className="w-4 h-4 mr-2" /> Contact
-              </Link>
-            </AnimatedText>
+            {/* Profile Image */}
+            {/* <AnimatedText delay={0.1}>
+              <div className="shrink-0">
+                <Image
+                  src={profileImg}
+                  width={320}
+                  height={320}
+                  sizes="(max-width: 768px) 60vw, 320px"
+                  className="h-48 w-48 rounded-full border-4 border-primary object-cover shadow-xl sm:h-56 sm:w-56 md:h-64 md:w-64 lg:h-72 lg:w-72"
+                  alt="Abdelghfar Khairallah - Front-End Software Engineer"
+                  priority
+                />
+              </div>
+            </AnimatedText> */}
           </div>
-          <AnimatedText delay={1.2}>
-            <Icons.chevronDown className="h-6 w-6 mt-10" />
-          </AnimatedText>
         </div>
       </section>
+      <div className="flex items-center  justify-center">
+        <AnimatedText delay={1.2}>
+          <Icons.chevronDown className="mt-10 h-12 w-12" />
+        </AnimatedText>
+      </div>
       <AnimatedSection
         direction="up"
         className="container space-y-6 bg-muted py-10 my-14"

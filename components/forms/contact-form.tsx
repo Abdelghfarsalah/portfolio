@@ -32,7 +32,6 @@ const formSchema = z.object({
 export function ContactForm() {
   const storeModal = useModalStore();
 
-  // const [open, setOpen] = useState(false);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),

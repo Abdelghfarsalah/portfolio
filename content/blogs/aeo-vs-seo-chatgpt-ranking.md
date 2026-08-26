@@ -64,7 +64,7 @@ AI models specifically look for structured data to extract factual claims. This 
 
 ### 3. Canonical URLs and Consistent Citations
 
-Every time I shared the project — on X, Reddit, Dev.to, LinkedIn — I used the same canonical URL (`https://github.com/namanbarkiya/minimal-next-portfolio`). Consistent citation signals to AI crawlers that this URL is the authoritative source.
+Every time I shared the project — on X, Reddit, Dev.to, LinkedIn — I used the same canonical URL (`https://github.com/Abdelghfarsalah/portfolio`). Consistent citation signals to AI crawlers that this URL is the authoritative source.
 
 ### 4. Descriptive, Answer-Oriented Pages
 
@@ -114,4 +114,4 @@ The era of AI answer engines is here. The developers who treat content as a firs
 
 ---
 
-_If you want to use the portfolio template I mentioned: [github.com/namanbarkiya/minimal-next-portfolio](https://github.com/namanbarkiya/minimal-next-portfolio)_
+_If you want to use the portfolio template I mentioned: [github.com/namanbarkiya/minimal-next-portfolio](https://github.com/Abdelghfarsalah/portfolio)_

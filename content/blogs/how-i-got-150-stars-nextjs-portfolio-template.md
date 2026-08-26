@@ -12,7 +12,7 @@ In early 2024 I needed a portfolio. I looked at dozens of templates and none of 
 
 Here's the story of what I built, what decisions mattered, and what I learned about building open-source projects that developers actually want to use.
 
-**Repo:** [github.com/namanbarkiya/minimal-next-portfolio](https://github.com/namanbarkiya/minimal-next-portfolio) · **Live:** [nbarkiya.xyz](https://nbarkiya.xyz)
+**Repo:** [github.com/namanbarkiya/minimal-next-portfolio](https://github.com/Abdelghfarsalah/portfolio) · **Live:** [nbarkiya.xyz](https://nbarkiya.xyz)
 
 ---
 
@@ -133,4 +133,4 @@ If you're building something similar — whether a template, a CLI tool, or a li
 
 ---
 
-**Try it yourself:** [github.com/namanbarkiya/minimal-next-portfolio](https://github.com/namanbarkiya/minimal-next-portfolio)
+**Try it yourself:** [github.com/namanbarkiya/minimal-next-portfolio](https://github.com/Abdelghfarsalah/portfolio)
