@@ -1,31 +1,55 @@
-# Abdelghfar Khairallah | Portfolio
+# Abdelghfar Khairallah — Portfolio
 
-Personal portfolio website for **Abdelghfar Khairallah**, a Front-End Software Engineer focused on building responsive, accessible, and production-ready web applications with React and Next.js.
+> Personal portfolio of **Abdelghfar Khairallah**, a Front-End Software Engineer building responsive, accessible, and production-ready web applications with **React, Next.js, and TypeScript**.
 
-The site presents professional experience, technical skills, selected projects, technical articles, and a contact workflow in a fast, responsive interface.
+[![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![Vercel](https://img.shields.io/badge/Deployed_on-Vercel-black?logo=vercel)](https://vercel.com/)
 
-## Overview
+**Explore the portfolio:** [Live Website](https://abdelghfar.dev)
 
-This project is built with the Next.js App Router and uses a configuration-driven structure. Most portfolio content can be updated from the `config` and `content` directories without changing page components.
+---
 
-### Highlights
+## ✨ About the Project
 
-- Responsive portfolio experience for desktop, tablet, and mobile
-- Next.js App Router with static and dynamic routes
-- Personal hero section with resume and contact actions
-- Project detail pages with technology stacks, screenshots, and descriptions
-- Professional experience timeline with detail pages
-- Technical skills catalog with ratings and featured skills
-- Markdown-powered blog with syntax highlighting and metadata
-- Contact form powered by Resend
-- GitHub repository star count API
-- Light, dark, retro, cyberpunk, paper, aurora, and synthwave themes
-- Smooth page and section animations with Framer Motion
-- Particle background powered by `particlesjs`
-- SEO metadata, Open Graph, sitemap, robots file, manifest, and structured data
-- Accessible UI primitives built with Radix UI and reusable components
+This is my personal developer portfolio, designed to showcase my **professional experience, technical skills, projects, and technical writing** in a fast and accessible web experience.
 
-## Screenshots
+The project is built with the **Next.js App Router** and follows a configuration-driven architecture, allowing most portfolio content to be updated through the `config` and `content` directories without modifying the underlying page components.
+
+The goal is to keep the codebase **maintainable, scalable, performant, and easy to customize**.
+
+---
+
+## 🚀 Highlights
+
+- ⚡ Built with **Next.js 16 App Router** and React 19
+- 📱 Fully responsive across desktop, tablet, and mobile
+- ♿ Accessible UI built with reusable Radix UI primitives
+- 🎨 Multiple visual themes including:
+  - Light
+  - Dark
+  - Retro
+  - Cyberpunk
+  - Paper
+  - Aurora
+  - Synthwave
+- ✨ Smooth page and component animations with Framer Motion
+- 🌌 Interactive particle background
+- 📝 Markdown-powered technical articles with syntax highlighting
+- 📊 GitHub repository star count integration
+- 📬 Contact form with Resend email delivery
+- 🔍 SEO-focused metadata and structured data
+- 🌐 Open Graph, sitemap, robots, and web manifest support
+- 🧩 Configuration-driven portfolio content
+- 🖼️ Project screenshots and detailed case-study pages
+- 📄 Dedicated resume page
+- 🌙 Theme persistence and modern UI interactions
+
+---
+
+## 📸 Screenshots
 
 ### Homepage
 
@@ -47,234 +71,136 @@ This project is built with the Next.js App Router and uses a configuration-drive
 
 ![Skills overview](public/readme/Screenshot%202026-08-27%20203207.png)
 
-## Tech Stack
+---
+
+## 🛠️ Tech Stack
 
 ### Frontend
 
-- Next.js 16
-- React 19
-- TypeScript
-- Tailwind CSS
-- Radix UI
-- Lucide React and React Icons
-- Framer Motion
+| Technology | Purpose |
+|---|---|
+| **Next.js 16** | React framework and App Router |
+| **React 19** | UI development |
+| **TypeScript** | Type-safe development |
+| **Tailwind CSS v4** | Utility-first styling |
+| **Radix UI** | Accessible UI primitives |
+| **Framer Motion** | Animations and transitions |
+| **Lucide React / React Icons** | Icons |
 
-### State, Data, and Forms
+### Backend & Integrations
 
-- Redux Toolkit and RTK Query concepts represented in project data
-- REST APIs
+| Technology | Purpose |
+|---|---|
+| **Next.js Route Handlers** | Server-side API endpoints |
+| **Resend** | Contact form email delivery |
+| **GitHub REST API** | Repository metadata and star count |
+
+### Forms & Validation
+
 - React Hook Form
 - Zod
-- `next-intl` and RTL-ready interface patterns
 
-### Backend and Services
+### Internationalization
 
-- Next.js Route Handlers
-- Resend for contact email delivery
-- GitHub REST API for repository stars
-- Nodemailer and SendGrid dependencies for email integrations
+- `next-intl`
+- English / Arabic
+- RTL-ready UI patterns
 
 ### Tooling
 
 - ESLint
 - Prettier
 - PostCSS
-- `particlesjs`
 - npm
 
-## Pages
+---
 
-| Route                   | Description                                                 |
-| ----------------------- | ----------------------------------------------------------- |
-| `/`                     | Homepage with hero, projects, experience, and skills     |
-| `/projects`             | Complete project list                                       |
-| `/projects/[projectId]` | Project details, screenshots, stack, and description        |
-| `/experience`           | Professional experience timeline                            |
-| `/experience/[expId]`   | Detailed experience entry                                   |
-| `/skills`               | Complete technical skills catalog                           |
-| `/contact`              | Contact form and source-code link                           |
-| `/resume`               | Resume page                                                 |
-| `/sitemap.xml`          | Generated sitemap                                           |
-| `/manifest.webmanifest` | Progressive web app manifest                                |
+## 📄 Pages
 
-## Featured Content
+| Route | Description |
+|---|---|
+| `/` | Homepage with hero, projects, experience, and skills |
+| `/projects` | Complete project portfolio |
+| `/projects/[projectId]` | Detailed project case study |
+| `/experience` | Professional experience timeline |
+| `/experience/[expId]` | Detailed experience entry |
+| `/skills` | Technical skills catalog |
+| `/contact` | Contact form |
+| `/resume` | Online resume |
+| `/sitemap.xml` | Generated sitemap |
+| `/manifest.webmanifest` | Web app manifest |
 
-### Projects
+---
 
-- **Portfolio Website**: Personal developer portfolio built with Next.js, React, TypeScript, Tailwind CSS, Framer Motion, and Vercel.
-- **NovaMart**: Multilingual e-commerce storefront with English and Arabic localization, RTL support, authentication, cart, wishlist, checkout, and responsive UI.
+## 💼 Featured Projects
 
-### Professional Experience
+### Portfolio
 
-- Front-End Developer at the Egyptian Armed Forces during military service
-- Software Engineer at King Fahd National Library, Riyadh
-- Freelance Front-End Developer for the Trend social media platform
-- Freelance Front-End Developer for an interactive chess game
+My personal developer portfolio built with:
 
-## Getting Started
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- Framer Motion
+- Vercel
 
-### Requirements
+The portfolio includes project case studies, professional experience, technical skills, articles, themes, animations, and SEO optimizations.
 
-- Node.js 20 or newer
-- npm 10 or newer
-- A Resend API key for the contact form
+### NovaMart
 
-### Installation
+A modern multilingual e-commerce storefront built with **Next.js 16**.
 
-```bash
-git clone https://github.com/Abdelghfarsalah/portfolio.git
-cd portfolio
-npm install
-```
+Features include:
 
-### Environment Variables
+- 🇺🇸 English / 🇪🇬 Arabic localization
+- RTL support
+- Product search and filtering
+- Shopping cart
+- Wishlist
+- Checkout flow
+- Order history
+- Authentication flows
+- Dark mode
+- Responsive UI
+- Redux Toolkit state management
+- RTK Query
+- Framer Motion animations
 
-Create a `.env.local` file in the project root:
+---
 
-```env
-RESEND_API_KEY=your_resend_api_key
-NEXT_PUBLIC_GOOGLE_MEASUREMENT_ID=your_google_measurement_id
-NEXT_PUBLIC_GOOGLE_VERIFICATION=your_google_site_verification
-```
+## 👨‍💻 Professional Experience
 
-Only `RESEND_API_KEY` is required for contact form delivery. Google variables are optional.
+### Front-End Developer — Egyptian Armed Forces
 
-### Run Locally
+Worked on frontend development during military service, focusing on responsive interfaces and modern web development practices.
 
-```bash
-npm run dev
-```
+### Software Engineer — King Fahd National Library
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+Worked on software engineering and frontend development for web-based applications.
 
-If port `3000` is already in use on Windows PowerShell:
+### Freelance Front-End Developer — Trend
 
-```powershell
-Get-NetTCPConnection -LocalPort 3000 -State Listen | Select-Object OwningProcess
-Stop-Process -Id PROCESS_ID -Force
-```
+Worked on frontend development for a social media platform, focusing on responsive interfaces and user experience.
 
-### Production Build
+### Freelance Front-End Developer — Interactive Chess Game
 
-```bash
-npm run build
-npm start
-```
+Built frontend interfaces and interactive functionality for a browser-based chess experience.
 
-### Quality Checks
+---
 
-```bash
-npx tsc --noEmit
-npm run lint
-```
+## 🧩 Configuration-Driven Architecture
 
-## Content and Customization
+One of the main goals of this project is to keep content separate from UI implementation.
 
-### Site identity and links
-
-Update the name, description, canonical URL, keywords, and social links in:
+Most portfolio information is managed through configuration files:
 
 ```text
-config/site.ts
-config/socials.ts
-```
-
-### Navigation and page text
-
-Update the main navigation in `config/routes.ts` and page titles/descriptions in `config/pages.ts`.
-
-### Projects
-
-Project cards and detail pages are driven by `config/projects.ts`.
-
-Each project can define its name, type, categories, description, website and GitHub links, technology stack, dates, main image, detail sections, and screenshots.
-
-Project images are stored under:
-
-```text
-public/projects/<project-name>/
-```
-
-### Experience
-
-Update professional roles in `config/experience.ts`. Each entry supports the position, company, location, dates, description, achievements, skills, optional company URL, and optional logo.
-
-### Skills
-
-Update the skill cards in `config/skills.ts`. The allowed skill names are defined in `config/constants.ts` through the `ValidSkills` type.
-
-### Images and static files
-
-Static assets are stored in `public/`. The main profile image is `public/profile-img.jpg`, and project assets are grouped by project directory.
-
-## Project Structure
-
-```text
-app/
-	(root)/              Main portfolio pages and dynamic detail routes
-	api/                 Contact and GitHub API route handlers
-	globals.css          Global styles and Tailwind layers
-	layout.tsx           Root metadata, providers, analytics, and particles
-	common/              Navigation, animation, analytics, and layout helpers
-	contact/             Contact page components
-	experience/          Experience cards and timeline
-	forms/               Contact form components
-	projects/            Project cards and descriptions
-	skills/              Skill cards and ratings
-	ui/                  Reusable interface primitives
 config/
-	constants.ts         Shared TypeScript unions
-	experience.ts        Professional experience data
-	pages.ts             Page titles and descriptions
-	projects.ts          Project data
-	routes.ts            Main navigation
-	site.ts              Site metadata and links
-	skills.ts            Technical skills data
-lib/                   Shared helpers
-public/                Images, resume, manifest assets, and static files
-providers/             Animation and modal providers
-types/                 Local TypeScript declarations
-```
-
-## API Routes
-
-### Contact
-
-`POST /api/contact` accepts the contact form payload and sends an email through Resend. Required fields are `name`, `email`, and `message`.
-
-### GitHub Stars
-
-`GET /api/github-stars` reads the configured GitHub repository URL and returns the repository slug, URL, and current star count when available.
-
-## Particle Background
-
-The global particle background is implemented in `components/shared/ParticlesBackground.tsx` using `particlesjs` and mounted from `app/layout.tsx`.
-
-The visual settings can be adjusted in the component:
-
-- `maxParticles`: maximum particle count
-- `minDistance`: distance used to connect particles
-- `speed`: particle movement speed
-- `connectParticles`: whether connecting edges are rendered
-
-## Deployment
-
-The application can be deployed to any platform that supports Next.js. For Vercel:
-
-1. Import the GitHub repository into Vercel.
-2. Add `RESEND_API_KEY` in the project environment variables.
-3. Add optional Google Analytics and verification variables if needed.
-4. Deploy using the default Next.js build settings.
-
-Before deployment, update `siteConfig.url` in `config/site.ts` from the local development URL to the production domain.
-
-## License
-
-This project is available under the license defined in [LICENSE](LICENSE).
-
-## Author
-
-**Abdelghfar Khairallah**
-
-- GitHub: [@Abdelghfarsalah](https://github.com/Abdelghfarsalah)
-- LinkedIn: [Abdelghfar Khairallah](https://www.linkedin.com/in/abdelghfar-khairallah-a55896261/)
+├── constants.ts
+├── experience.ts
+├── pages.ts
+├── projects.ts
+├── routes.ts
+├── site.ts
+└── skills.ts
