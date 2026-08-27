@@ -33,7 +33,7 @@ export default function ParticlesBackground() {
       cancelled = true;
       particles?.destroy?.();
     };
-  }, [isMobile]);
+  }, []);
 
   return <canvas className="particles-background" aria-hidden="true" />;
 }

@@ -1,8 +1,11 @@
-import { GitHubStarBadge } from "@/components/common/github-star-badge";
+
+import CustomContactButton from "@/components/common/contactbutton";
+import ContactButton from "@/components/common/contactbutton";
 import { MainNav } from "@/components/common/main-nav";
 import { ModeToggle } from "@/components/common/mode-toggle";
 import { SiteFooter } from "@/components/common/site-footer";
 import { routesConfig } from "@/config/routes";
+
 
 interface MarketingLayoutProps {
   children: React.ReactNode;
@@ -20,7 +23,7 @@ export default function MarketingLayout({ children }: MarketingLayoutProps) {
             </div>
           </MainNav>
           <nav className="flex items-center gap-5">
-            {/* <GitHubStarBadge /> */}
+            <CustomContactButton />
             <ModeToggle />
           </nav>
         </div>

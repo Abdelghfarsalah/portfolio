@@ -26,4 +26,10 @@ export const SocialLinks: SocialInterface[] = [
     icon: Icons.gmail,
     link: "mailto:abdelghfarsalah8@gmail.com",
   },
+  {
+    name: "Phone",
+    username: "01204116925",
+    icon: Icons.contact,
+    link: "tel:01204116925",
+  },
 ];
