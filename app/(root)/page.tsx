@@ -8,12 +8,10 @@ import { AnimatedSection } from "@/components/common/animated-section";
 import { AnimatedText } from "@/components/common/animated-text";
 import { ClientPageWrapper } from "@/components/common/client-page-wrapper";
 import { Icons } from "@/components/common/icons";
-import ContributionCard from "@/components/contributions/contribution-card";
 import ExperienceCard from "@/components/experience/experience-card";
 import ProjectCard from "@/components/projects/project-card";
 import SkillsCard from "@/components/skills/skills-card";
 import { Button, buttonVariants } from "@/components/ui/button";
-import { featuredContributions } from "@/config/contributions";
 import { experiences } from "@/config/experience";
 import { pagesConfig } from "@/config/pages";
 import { featuredProjects } from "@/config/projects";
@@ -22,7 +20,7 @@ import { featuredSkills } from "@/config/skills";
 import { getFeaturedBlogs } from "@/lib/blogs";
 import { cn } from "@/lib/utils";
 import profileImg from "@/public/profile-img.jpg";
-
+import BlurText from "@/components/BlurText";
 export const metadata: Metadata = {
   title: `${pagesConfig.home.metadata.title}`,
   description:
@@ -42,7 +40,7 @@ export default function IndexPage() {
     url: siteConfig.url,
     image: siteConfig.ogImage,
     jobTitle: "Applied Frontend Developer",
-    sameAs: [siteConfig.links.github, siteConfig.links.twitter],
+    sameAs: [siteConfig.links.github, siteConfig.links.linkedin],
   };
 
   // Structured data for website as a software application (template)
@@ -78,7 +76,7 @@ export default function IndexPage() {
       />
 
       <section className="flex items-center pt-16 md:pt-24 lg:pt-32">
-        <div className="container mx-auto max-w-6xl">
+        <div className="container mx-auto max-w-12xl">
           <div className="flex flex-col-reverse items-center gap-10 md:flex-row md:justify-between md:gap-16">
             {/* Content */}
             <div className="flex max-w-2xl flex-1 flex-col items-center text-center md:items-start md:text-left">
@@ -87,7 +85,12 @@ export default function IndexPage() {
                 delay={0.2}
                 className="font-heading text-4xl font-bold sm:text-5xl md:text-6xl lg:text-7xl"
               >
-                Abdelghfar Khairallah
+                <BlurText
+                  text="Abdelghfar Khairallah"
+                  delay={200}
+                  animateBy="words"
+                  direction="top"
+                  className="font-heading text-4xl font-bold sm:text-5xl md:text-6xl lg:text-7xl" animationFrom={undefined} animationTo={undefined} onAnimationComplete={undefined}/>
               </AnimatedText>
 
               <AnimatedText
@@ -287,20 +290,6 @@ export default function IndexPage() {
                 />
               </div>
             </AnimatedText>
-            {/* Profile Image */}
-            {/* <AnimatedText delay={0.1}>
-              <div className="shrink-0">
-                <Image
-                  src={profileImg}
-                  width={320}
-                  height={320}
-                  sizes="(max-width: 768px) 60vw, 320px"
-                  className="h-48 w-48 rounded-full border-4 border-primary object-cover shadow-xl sm:h-56 sm:w-56 md:h-64 md:w-64 lg:h-72 lg:w-72"
-                  alt="Abdelghfar Khairallah - Front-End Software Engineer"
-                  priority
-                />
-              </div>
-            </AnimatedText> */}
           </div>
         </div>
       </section>
@@ -384,35 +373,6 @@ export default function IndexPage() {
         </div>
         <AnimatedText delay={0.4} className="flex justify-center">
           <Link href="/experience">
-            <Button variant={"outline"} className="rounded-xl">
-              <Icons.chevronDown className="mr-2 h-4 w-4" /> View All
-            </Button>
-          </Link>
-        </AnimatedText>
-      </AnimatedSection>
-      <AnimatedSection
-        direction="up"
-        className="container space-y-6 bg-muted py-10 my-14"
-        id="contributions"
-      >
-        <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
-          <AnimatedText
-            as="h2"
-            className="font-heading text-3xl leading-[1.1] sm:text-3xl md:text-6xl"
-          >
-            {pagesConfig.contributions.title}
-          </AnimatedText>
-          <AnimatedText
-            as="p"
-            delay={0.2}
-            className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7"
-          >
-            {pagesConfig.contributions.description}
-          </AnimatedText>
-        </div>
-        <ContributionCard contributions={featuredContributions} />
-        <AnimatedText delay={0.4} className="flex justify-center">
-          <Link href="/contributions">
             <Button variant={"outline"} className="rounded-xl">
               <Icons.chevronDown className="mr-2 h-4 w-4" /> View All
             </Button>

@@ -47,15 +47,6 @@ export const pagesConfig: PagesConfig = {
       description: "Contact Abdelghfar Khairallah.",
     },
   },
-  contributions: {
-    title: "Contributions",
-    description: "Open-source contributions and community involvement.",
-    metadata: {
-      title: "Contributions",
-      description:
-        "Abdelghfar Khairallah's open-source contributions and community involvement.",
-    },
-  },
   resume: {
     title: "Resume",
     description: "Abdelghfar Khairallah's resume.",

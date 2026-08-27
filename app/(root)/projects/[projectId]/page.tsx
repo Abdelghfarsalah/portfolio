@@ -18,7 +18,7 @@ interface ProjectPageProps {
   }>;
 }
 
-const githubUsername = "namanbarkiya";
+const githubUsername = "Abdelghfarsalah";
 
 export default async function Project({ params }: ProjectPageProps) {
   const { projectId } = await params;
@@ -73,7 +73,7 @@ export default async function Project({ params }: ProjectPageProps) {
           >
             <Image
               src={profileImg}
-              alt={"naman"}
+              alt={siteConfig.authorName}
               width={42}
               height={42}
               className="rounded-full bg-background"

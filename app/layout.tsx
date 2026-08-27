@@ -1,3 +1,5 @@
+
+// @ts-ignore Next.js resolves global CSS imports during the build.
 import "./globals.css";
 
 import { GoogleAnalytics } from "@next/third-parties/google";
@@ -11,6 +13,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { ModalProvider } from "@/providers/modal-provider";
+import ParticlesBackground from "@/components/shared/ParticlesBackground";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -104,11 +107,14 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <head />
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased",
+          "relative min-h-screen bg-background font-sans antialiased ",
           fontSans.variable,
           fontHeading.variable
         )}
+
       >
+        <ParticlesBackground />
+
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

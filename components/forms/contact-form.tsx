@@ -22,16 +22,18 @@ const formSchema = z.object({
   name: z.string().min(3, {
     message: "Name must contain at least 3 characters.",
   }),
+
   email: z.string().email("Please enter a valid email."),
+
   message: z.string().min(10, {
     message: "Please write something more descriptive.",
   }),
+
   social: z.string().url().optional().or(z.literal("")),
 });
 
 export function ContactForm() {
   const storeModal = useModalStore();
-
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -42,32 +44,69 @@ export function ContactForm() {
       social: "",
     },
   });
+async function onSubmit(values: z.infer<typeof formSchema>) {
+  try {
+    const response = await fetch("/api/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(values),
+    });
 
-  // 2. Define a submit handler.
-  async function onSubmit(values: z.infer<typeof formSchema>) {
+    // Read the response as TEXT first
+    const rawResponse = await response.text();
+
+    console.log("================================");
+    console.log("CONTACT STATUS:", response.status);
+    console.log("CONTACT RESPONSE:", rawResponse);
+    console.log("================================");
+
+    let result: { success?: boolean; error?: string } = {};
+
     try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(values),
+      result = JSON.parse(rawResponse);
+    } catch {
+      result = {
+        error: rawResponse || "Empty response from server",
+      };
+    }
+
+    if (!response.ok) {
+      console.error("CONTACT API ERROR:", result.error);
+
+      storeModal.onOpen({
+        title: "Something went wrong",
+        description:
+          result.error || `Server error: ${response.status}`,
+        icon: null,
       });
 
-      form.reset();
-
-      if (response.status === 200) {
-        storeModal.onOpen({
-          title: "Thankyou!",
-          description:
-            "Your message has been received! I appreciate your contact and will get back to you shortly.",
-          icon: Icons.successAnimated,
-        });
-      }
-    } catch (err) {
-      console.log("Err!", err);
+      return;
     }
+
+    // Only reset after successful sending
+    form.reset();
+
+    storeModal.onOpen({
+      title: "Thank you!",
+      description:
+        "Your message has been received! I appreciate your contact and will get back to you shortly.",
+      icon: Icons.successAnimated,
+    });
+  } catch (error) {
+    console.error("FETCH ERROR:", error);
+
+    storeModal.onOpen({
+      title: "Something went wrong",
+      description:
+        error instanceof Error
+          ? error.message
+          : "Could not connect to the server.",
+      icon:null,
+    });
   }
+}
 
   return (
     <Form {...form}>
@@ -81,59 +120,83 @@ export function ContactForm() {
           render={({ field }) => (
             <FormItem>
               <FormLabel>Name</FormLabel>
+
               <FormControl>
-                <Input placeholder="Enter your name" {...field} />
+                <Input
+                  placeholder="Enter your name"
+                  {...field}
+                />
               </FormControl>
-              {/* <FormDescription>
-                                This is your public display name.
-                            </FormDescription> */}
+
               <FormMessage />
             </FormItem>
           )}
         />
+
         <FormField
           control={form.control}
           name="email"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Email</FormLabel>
+
               <FormControl>
-                <Input placeholder="Enter your email" {...field} />
+                <Input
+                  type="email"
+                  placeholder="Enter your email"
+                  {...field}
+                />
               </FormControl>
+
               <FormMessage />
             </FormItem>
           )}
         />
+
         <FormField
           control={form.control}
           name="message"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Message</FormLabel>
+
               <FormControl>
-                <Textarea placeholder="Enter your message" {...field} />
+                <Textarea
+                  placeholder="Enter your message"
+                  {...field}
+                />
               </FormControl>
+
               <FormMessage />
             </FormItem>
           )}
         />
+
         <FormField
           control={form.control}
           name="social"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Social (optional)</FormLabel>
+
               <FormControl>
-                <Input placeholder="Link for social account" {...field} />
+                <Input
+                  placeholder="Link for social account"
+                  {...field}
+                />
               </FormControl>
-              {/* <FormDescription>
-                                This is your public display name.
-                            </FormDescription> */}
+
               <FormMessage />
             </FormItem>
           )}
         />
-        <Button type="submit">Submit</Button>
+
+        <Button
+          type="submit"
+          disabled={form.formState.isSubmitting}
+        >
+          {form.formState.isSubmitting ? "Sending..." : "Submit"}
+        </Button>
       </form>
     </Form>
   );

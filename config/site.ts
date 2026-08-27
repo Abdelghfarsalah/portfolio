@@ -1,21 +1,21 @@
 export const siteConfig = {
   name: "Abdelghfar Khairallah - Applied Frontend Developer",
   authorName: "Abdelghfar Khairallah",
-  username: "namanbarkiya",
+  username: "AbdelghfarKhairallah",
   description:
     "Abdelghfar Khairallah - Applied Frontend Developer working at the intersection of AI, data, and scalable software systems. Explore my projects, experience, and contributions in software development and AI.",
-  url: "https://nbarkiya.xyz",
+  url: "http://localhost:3000",
   links: {
-    twitter: "https://x.com/namanbarkiya",
-    github: "https://github.com/namanbarkiya",
+    github: "https://github.com/Abdelghfarsalah",
+    linkedin: "https://www.linkedin.com/in/abdelghfar-khairallah-a55896261/",
     templateRepo: "https://github.com/Abdelghfarsalah/portfolio",
   },
   ogImage:
-    "https://res.cloudinary.com/dvt5vkfwz/image/upload/v1767384721/naman_portfolio_og_image.png",
+    "null",
   iconIco:
-    "https://res.cloudinary.com/dbfvcn3f6/image/upload/v1692357384/assets/naman-favicon.ico",
+    "null",
   logoIcon:
-    "https://res.cloudinary.com/dbfvcn3f6/image/upload/v1692357294/assets/naman-logo.png",
+    "null",
   keywords: [
     "Abdelghfar Khairallah",
     "Applied Frontend Developer",
