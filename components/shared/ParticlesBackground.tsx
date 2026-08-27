@@ -3,6 +3,8 @@
 import { useEffect } from "react";
 
 export default function ParticlesBackground() {
+      const isMobile = window.innerWidth < 768;
+ 
   useEffect(() => {
     let particles: { destroy?: () => void } | undefined;
     let cancelled = false;
@@ -11,8 +13,7 @@ export default function ParticlesBackground() {
       const module = await import("particlesjs");
 
       if (cancelled) return;
-          const isMobile = window.innerWidth < 768;
-
+       
       const particlesJs = module.default || module;
       particles = particlesJs.init({
         selector: ".particles-background",
@@ -32,7 +33,7 @@ export default function ParticlesBackground() {
       cancelled = true;
       particles?.destroy?.();
     };
-  }, []);
+  }, [isMobile]);
 
   return <canvas className="particles-background" aria-hidden="true" />;
 }

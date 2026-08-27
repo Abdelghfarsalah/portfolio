@@ -86,14 +86,12 @@ This project is built with the Next.js App Router and uses a configuration-drive
 
 | Route                   | Description                                                 |
 | ----------------------- | ----------------------------------------------------------- |
-| `/`                     | Homepage with hero, projects, experience, skills, and blogs |
+| `/`                     | Homepage with hero, projects, experience, and skills     |
 | `/projects`             | Complete project list                                       |
 | `/projects/[projectId]` | Project details, screenshots, stack, and description        |
 | `/experience`           | Professional experience timeline                            |
 | `/experience/[expId]`   | Detailed experience entry                                   |
 | `/skills`               | Complete technical skills catalog                           |
-| `/blogs`                | Technical blog index                                        |
-| `/blogs/[slug]`         | Rendered Markdown article                                   |
 | `/contact`              | Contact form and source-code link                           |
 | `/resume`               | Resume page                                                 |
 | `/sitemap.xml`          | Generated sitemap                                           |
@@ -205,10 +203,6 @@ Update professional roles in `config/experience.ts`. Each entry supports the pos
 
 Update the skill cards in `config/skills.ts`. The allowed skill names are defined in `config/constants.ts` through the `ValidSkills` type.
 
-### Blogs
-
-Blog posts are Markdown files stored in `content/blogs/`. The loader in `lib/blogs.ts` reads frontmatter and generates article metadata and routes automatically.
-
 ### Images and static files
 
 Static assets are stored in `public/`. The main profile image is `public/profile-img.jpg`, and project assets are grouped by project directory.
@@ -221,8 +215,6 @@ app/
 	api/                 Contact and GitHub API route handlers
 	globals.css          Global styles and Tailwind layers
 	layout.tsx           Root metadata, providers, analytics, and particles
-components/
-	blogs/               Blog cards
 	common/              Navigation, animation, analytics, and layout helpers
 	contact/             Contact page components
 	experience/          Experience cards and timeline
@@ -238,8 +230,7 @@ config/
 	routes.ts            Main navigation
 	site.ts              Site metadata and links
 	skills.ts            Technical skills data
-content/blogs/         Markdown blog posts
-lib/                   Blog utilities and shared helpers
+lib/                   Shared helpers
 public/                Images, resume, manifest assets, and static files
 providers/             Animation and modal providers
 types/                 Local TypeScript declarations

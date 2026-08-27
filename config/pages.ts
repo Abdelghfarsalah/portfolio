@@ -55,16 +55,6 @@ export const pagesConfig: PagesConfig = {
       description: "Abdelghfar Khairallah's resume.",
     },
   },
-  blogs: {
-    title: "Blogs",
-    description:
-      "Thoughts on AI, software engineering, and building in public.",
-    metadata: {
-      title: "Blogs",
-      description:
-        "Abdelghfar Khairallah's blog — thoughts on AI, software engineering, and building in public.",
-    },
-  },
   experience: {
     title: "Experience",
     description: "Professional journey and career timeline.",

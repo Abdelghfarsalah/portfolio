@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
 
-import BlogCard from "@/components/blogs/blog-card";
 import { AnimatedSection } from "@/components/common/animated-section";
 import { AnimatedText } from "@/components/common/animated-text";
 import { ClientPageWrapper } from "@/components/common/client-page-wrapper";
@@ -17,10 +16,10 @@ import { pagesConfig } from "@/config/pages";
 import { featuredProjects } from "@/config/projects";
 import { siteConfig } from "@/config/site";
 import { featuredSkills } from "@/config/skills";
-import { getFeaturedBlogs } from "@/lib/blogs";
 import { cn } from "@/lib/utils";
 import profileImg from "@/public/profile-img.jpg";
 import BlurText from "@/components/BlurText";
+ import TextType from "@/components/TextType";
 export const metadata: Metadata = {
   title: `${pagesConfig.home.metadata.title}`,
   description:
@@ -31,7 +30,6 @@ export const metadata: Metadata = {
 };
 
 export default function IndexPage() {
-  const featuredBlogs = getFeaturedBlogs();
   // Structured data for personal portfolio
   const personSchema = {
     "@context": "https://schema.org",
@@ -76,29 +74,42 @@ export default function IndexPage() {
       />
 
       <section className="flex items-center pt-16 md:pt-24 lg:pt-32">
-        <div className="container mx-auto max-w-12xl">
-          <div className="flex flex-col-reverse items-center gap-10 md:flex-row md:justify-between md:gap-16">
+        <div className="w-full">
+          <div className="flex flex-col-reverse items-center gap-10 md:flex-row md:items-center md:justify-between md:gap-24 lg:gap-32">
             {/* Content */}
-            <div className="flex max-w-2xl flex-1 flex-col items-center text-center md:items-start md:text-left">
+            <div className="flex max-w-2xl flex-1 flex-col items-center text-center md:min-w-0 md:items-start md:text-left">
               <AnimatedText
                 as="h1"
                 delay={0.2}
-                className="font-heading text-4xl font-bold sm:text-5xl md:text-6xl lg:text-7xl"
+                className="font-heading text-4xl font-bold sm:text-5xl "
               >
-                <BlurText
-                  text="Abdelghfar Khairallah"
-                  delay={200}
-                  animateBy="words"
-                  direction="top"
-                  className="font-heading text-4xl font-bold sm:text-5xl md:text-6xl lg:text-7xl" animationFrom={undefined} animationTo={undefined} onAnimationComplete={undefined}/>
-              </AnimatedText>
+                <TextType 
+                  text={["Abdelghfar Khairallah"]}
+                  typingSpeed={75}
+                  pauseDuration={1500}
+                  showCursor
+                  cursorCharacter="_"
+                  texts={["Welcome to React Bits! Good to see you!", "Build some amazing experiences!"]}
+                  deletingSpeed={50}
+                  variableSpeedEnabled={false}
+                  variableSpeedMin={60}
+                  variableSpeedMax={120}
+                  cursorBlinkDuration={0.5} variableSpeed={undefined} onSentenceComplete={undefined}                />
+                
+               </AnimatedText>
 
               <AnimatedText
                 as="h3"
                 delay={0.4}
                 className="mt-3 font-heading text-lg text-muted-foreground sm:text-xl md:text-2xl"
               >
-                Front-End Software Engineer
+                <BlurText
+                  text="Front-End Software Engineer"
+                  delay={200}
+                  animateBy="words"
+                  direction="top"
+                  className="mt-3 font-heading text-lg text-muted-foreground sm:text-xl md:text-2xl" animationFrom={undefined} animationTo={undefined} onAnimationComplete={undefined}/>
+             
               </AnimatedText>
 
               <div className="mt-6 max-w-[42rem]">
@@ -147,7 +158,7 @@ export default function IndexPage() {
             {/* HERO IMAGE */}
             <AnimatedText
               delay={0.2}
-              className="relative flex w-full justify-center md:w-[48%]"
+              className="relative flex w-full shrink-0 justify-center md:w-[44%] md:justify-end"
             >
               <div className="relative h-[520px] w-[380px] sm:h-[580px] sm:w-[430px] lg:h-[650px] lg:w-[500px]">
                 {/* ========================================
@@ -373,46 +384,6 @@ export default function IndexPage() {
         </div>
         <AnimatedText delay={0.4} className="flex justify-center">
           <Link href="/experience">
-            <Button variant={"outline"} className="rounded-xl">
-              <Icons.chevronDown className="mr-2 h-4 w-4" /> View All
-            </Button>
-          </Link>
-        </AnimatedText>
-      </AnimatedSection>
-      <AnimatedSection
-        direction="up"
-        className="container space-y-6 py-10 my-14"
-        id="blogs"
-      >
-        <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
-          <AnimatedText
-            as="h2"
-            className="font-heading text-3xl leading-[1.1] sm:text-3xl md:text-6xl"
-          >
-            {pagesConfig.blogs.title}
-          </AnimatedText>
-          <AnimatedText
-            as="p"
-            delay={0.2}
-            className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7"
-          >
-            {pagesConfig.blogs.description}
-          </AnimatedText>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full items-stretch">
-          {featuredBlogs.map((blog, index) => (
-            <AnimatedSection
-              key={blog.slug}
-              delay={0.1 * (index + 1)}
-              direction="up"
-              className="h-full w-full min-w-0"
-            >
-              <BlogCard blog={blog} />
-            </AnimatedSection>
-          ))}
-        </div>
-        <AnimatedText delay={0.4} className="flex justify-center">
-          <Link href="/blogs">
             <Button variant={"outline"} className="rounded-xl">
               <Icons.chevronDown className="mr-2 h-4 w-4" /> View All
             </Button>

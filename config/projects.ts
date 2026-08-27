@@ -76,7 +76,8 @@ export const Projects: ProjectInterface[] = [
       companyName: "NovaMart",
 
       type: "Professional",
-
+ websiteLink: "https://nova-mart-wheat.vercel.app/en",
+    githubLink: "https://github.com/Abdelghfarsalah/NovaMart",
       category: ["Frontend", "Full Stack", "Web Dev"],
 
       shortDescription:
