@@ -89,12 +89,11 @@ export default function IndexPage() {
                   pauseDuration={1500}
                   showCursor
                   cursorCharacter="_"
-                  texts={["Welcome to React Bits! Good to see you!", "Build some amazing experiences!"]}
                   deletingSpeed={50}
-                  variableSpeedEnabled={false}
-                  variableSpeedMin={60}
-                  variableSpeedMax={120}
-                  cursorBlinkDuration={0.5} variableSpeed={undefined} onSentenceComplete={undefined}                />
+                  cursorBlinkDuration={0.5}
+                  variableSpeed={undefined}
+                  onSentenceComplete={undefined}
+                />
                 
                </AnimatedText>
 
