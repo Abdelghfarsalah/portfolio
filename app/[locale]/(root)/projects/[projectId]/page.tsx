@@ -82,7 +82,7 @@ export default async function Project({ params }: ProjectPageProps) {
               className="rounded-full bg-background"
             />
 
-            <div className="flex-1 text-left leading-tight">
+            <div className="flex-1 text-start leading-tight">
               <p className="font-medium">{"Abdelghfar Khairallah"}</p>
               <p className="text-[12px] text-muted-foreground">
                 @{siteConfig.username}
@@ -152,7 +152,7 @@ export default async function Project({ params }: ProjectPageProps) {
           href="/projects"
           className={cn(buttonVariants({ variant: "ghost" }))}
         >
-          <Icons.chevronLeft className="mr-2 h-4 w-4" />
+            <Icons.chevronLeft className="me-2 h-4 w-4" />
           {t("allProjects")}
         </Link>
       </div>

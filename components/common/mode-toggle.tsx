@@ -33,37 +33,37 @@ export function ModeToggle() {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         <DropdownMenuItem onClick={() => setTheme("light")}>
-          <Icons.sun className="mr-2 h-4 w-4" />
+          <Icons.sun className="me-2 h-4 w-4" />
           <span>{t("themes.light")}</span>
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme("dark")}>
-          <Icons.moon className="mr-2 h-4 w-4" />
+          <Icons.moon className="me-2 h-4 w-4" />
           <span>{t("themes.dark")}</span>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem onClick={() => setTheme("retro")}>
-          <Icons.retro className="mr-2 h-4 w-4" />
+          <Icons.retro className="me-2 h-4 w-4" />
           <span>{t("themes.retro")}</span>
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme("cyberpunk")}>
-          <Icons.cyberpunk className="mr-2 h-4 w-4" />
+          <Icons.cyberpunk className="me-2 h-4 w-4" />
           <span>{t("themes.cyberpunk")}</span>
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme("paper")}>
-          <Icons.paper className="mr-2 h-4 w-4" />
+          <Icons.paper className="me-2 h-4 w-4" />
           <span>{t("themes.paper")}</span>
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme("aurora")}>
-          <Icons.aurora className="mr-2 h-4 w-4" />
+          <Icons.aurora className="me-2 h-4 w-4" />
           <span>{t("themes.aurora")}</span>
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme("synthwave")}>
-          <Icons.synthwave className="mr-2 h-4 w-4" />
+          <Icons.synthwave className="me-2 h-4 w-4" />
           <span>{t("themes.synthwave")}</span>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem onClick={() => setTheme("system")}>
-          <Icons.laptop className="mr-2 h-4 w-4" />
+          <Icons.laptop className="me-2 h-4 w-4" />
           <span>{t("themes.system")}</span>
         </DropdownMenuItem>
       </DropdownMenuContent>

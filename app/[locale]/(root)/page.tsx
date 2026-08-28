@@ -74,7 +74,7 @@ export default async function IndexPage() {
         <div className="w-full">
           <div className="flex flex-col-reverse items-center gap-10 md:flex-row md:items-center md:justify-between md:gap-24 lg:gap-32">
             {/* Content */}
-            <div className="flex max-w-2xl flex-1 flex-col items-center text-center md:min-w-0 md:items-start md:text-left">
+            <div className="flex max-w-2xl flex-1 flex-col items-center text-center md:min-w-0 md:items-start md:text-start">
               <AnimatedText
                 as="h1"
                 delay={0.2}
@@ -123,7 +123,7 @@ export default async function IndexPage() {
                     className={cn(buttonVariants({ size: "lg" }))}
                     aria-label={t("viewResume")}
                   >
-                    <Icons.post className="mr-2 h-4 w-4" />
+                    <Icons.post className="me-2 h-4 w-4" />
                     {t("resume")}
                   </Link>
                 </AnimatedText>
@@ -140,7 +140,7 @@ export default async function IndexPage() {
                     )}
                     aria-label={t("contactAuthor")}
                   >
-                    <Icons.contact className="mr-2 h-4 w-4" />
+                    <Icons.contact className="me-2 h-4 w-4" />
                     {t("contact")}
                   </Link>
                 </AnimatedText>
@@ -337,7 +337,7 @@ export default async function IndexPage() {
         <AnimatedText delay={0.4} className="flex justify-center">
           <Link href="/projects">
             <Button variant={"outline"} className="rounded-xl">
-              <Icons.chevronDown className="mr-2 h-4 w-4" /> {t("viewAllProjects")}
+              <Icons.chevronDown className="me-2 h-4 w-4" /> {t("viewAllProjects")}
             </Button>
           </Link>
         </AnimatedText>
@@ -376,7 +376,7 @@ export default async function IndexPage() {
         <AnimatedText delay={0.4} className="flex justify-center">
           <Link href="/experience">
             <Button variant={"outline"} className="rounded-xl">
-              <Icons.chevronDown className="mr-2 h-4 w-4" /> {t("viewAllExperience")}
+              <Icons.chevronDown className="me-2 h-4 w-4" /> {t("viewAllExperience")}
             </Button>
           </Link>
         </AnimatedText>
@@ -405,7 +405,7 @@ export default async function IndexPage() {
         <AnimatedText delay={0.4} className="flex justify-center">
           <Link href="/skills">
             <Button variant={"outline"} className="rounded-xl">
-              <Icons.chevronDown className="mr-2 h-4 w-4" /> {t("viewAllSkills")}
+              <Icons.chevronDown className="me-2 h-4 w-4" /> {t("viewAllSkills")}
             </Button>
           </Link>
         </AnimatedText>

@@ -102,7 +102,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({ experience }) => {
         >
           <Link href={`/experience/${experience.id}`}>
             {t("viewDetails")}
-            <Icons.chevronRight className="ml-2 h-4 w-4" />
+            <Icons.chevronRight className="ms-2 h-4 w-4" />
           </Link>
         </Button>
       </div>

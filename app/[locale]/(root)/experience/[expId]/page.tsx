@@ -128,7 +128,7 @@ export default async function ExperienceDetailPage({
         <AnimatedSection className="mb-6">
           <Button variant="ghost" size="sm" className="mb-4" asChild>
             <Link href="/experience">
-              <Icons.chevronLeft className="mr-2 h-4 w-4" />
+              <Icons.chevronLeft className="me-2 h-4 w-4" />
               {t("backToExperience")}
             </Link>
           </Button>
@@ -151,7 +151,7 @@ export default async function ExperienceDetailPage({
                         />
                       </div>
                     )}
-                    <div className="flex-1 text-center sm:text-left">
+                    <div className="flex-1 text-center sm:text-start">
                       <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2">
                         {experience.position}
                       </h1>
@@ -196,7 +196,7 @@ export default async function ExperienceDetailPage({
         <AnimatedSection delay={0.4} className="flex justify-center mt-8">
           <Button variant="outline" asChild>
             <Link href="/experience">
-              <Icons.chevronLeft className="mr-2 h-4 w-4" />
+              <Icons.chevronLeft className="me-2 h-4 w-4" />
               {t("viewAllExperience")}
             </Link>
           </Button>

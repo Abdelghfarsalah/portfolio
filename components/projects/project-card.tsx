@@ -37,7 +37,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         <Link href={`/projects/${project.id}`} className="mt-auto">
           <Button variant={"default"} className="mt-2 w-full sm:w-auto">
             {t("readMore")}
-            <Icons.chevronRight className="w-4 ml-1" />
+            <Icons.chevronRight className="w-4 ms-1" />
           </Button>
         </Link>
       </div>

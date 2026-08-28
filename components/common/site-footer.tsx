@@ -40,7 +40,7 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
                   href={item.href}
                   className="w-fit text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
-                  {item.translationKey ? pagesT(item.translationKey.replace("pages.", "").replace(".title", ".title")) : item.title}
+                  {item.translationKey ? pagesT(item.translationKey.replace("pages.", "")) : item.title}
                 </Link>
               ))}
             </div>

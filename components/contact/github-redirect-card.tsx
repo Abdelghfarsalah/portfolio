@@ -43,7 +43,7 @@ export default function GithubRedirectCard() {
             "w-full bg-transparent border-2 transition-all duration-300 py-6"
           )}
         >
-          <span className="mr-2">{t("sourceCode")}</span>
+          <span className="me-2">{t("sourceCode")}</span>
           <ExternalLink className="w-5 h-5" />
         </Link>
       </CardFooter>
