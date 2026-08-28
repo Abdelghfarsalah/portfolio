@@ -1,15 +1,15 @@
 import { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 
 import PageContainer from "@/components/common/page-container";
 import ProjectCard from "@/components/projects/project-card";
 import { ResponsiveTabs } from "@/components/ui/responsive-tabs";
-import { pagesConfig } from "@/config/pages";
 import { Projects } from "@/config/projects";
 
-export const metadata: Metadata = {
-  title: pagesConfig.projects.metadata.title,
-  description: pagesConfig.projects.metadata.description,
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("pages.projects");
+  return { title: t("title"), description: t("metadata") };
+}
 
 const renderContent = (tabVal: string) => {
   let projectArr = Projects;
@@ -28,29 +28,31 @@ const renderContent = (tabVal: string) => {
   );
 };
 
-export default function ProjectsPage() {
+export default async function ProjectsPage() {
+  const t = await getTranslations("pages.projects");
+  const common = await getTranslations("common");
   const tabItems = [
     {
       value: "all",
-      label: "All",
+      label: common("all"),
       content: renderContent("all"),
     },
     {
       value: "personal",
-      label: "Personal",
+      label: common("personal"),
       content: renderContent("personal"),
     },
     {
       value: "professional",
-      label: "Professional",
+      label: common("professional"),
       content: renderContent("professional"),
     },
   ];
 
   return (
     <PageContainer
-      title={pagesConfig.projects.title}
-      description={pagesConfig.projects.description}
+      title={t("title")}
+      description={t("description")}
     >
       <ResponsiveTabs items={tabItems}  defaultValue="all" />
     </PageContainer>

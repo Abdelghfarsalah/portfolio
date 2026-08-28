@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
@@ -12,7 +13,6 @@ import ProjectCard from "@/components/projects/project-card";
 import SkillsCard from "@/components/skills/skills-card";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { experiences } from "@/config/experience";
-import { pagesConfig } from "@/config/pages";
 import { featuredProjects } from "@/config/projects";
 import { siteConfig } from "@/config/site";
 import { featuredSkills } from "@/config/skills";
@@ -20,16 +20,13 @@ import { cn } from "@/lib/utils";
 import profileImg from "@/public/profile-img.jpg";
 import BlurText from "@/components/BlurText";
  import TextType from "@/components/TextType";
-export const metadata: Metadata = {
-  title: `${pagesConfig.home.metadata.title}`,
-  description:
-    "Abdelghfar Khairallah - Applied Frontend Developer working at the intersection of AI, data, and scalable software systems. Explore my projects, experience, and contributions.",
-  alternates: {
-    canonical: siteConfig.url,
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("home");
+  return { title: t("title"), description: t("metadataDescription"), alternates: { canonical: siteConfig.url } };
+}
 
-export default function IndexPage() {
+export default async function IndexPage() {
+  const t = await getTranslations("home");
   // Structured data for personal portfolio
   const personSchema = {
     "@context": "https://schema.org",
@@ -84,7 +81,7 @@ export default function IndexPage() {
                 className="font-heading text-4xl font-bold sm:text-5xl "
               >
                 <TextType 
-                  text={["Abdelghfar Khairallah"]}
+                  text={[siteConfig.authorName]}
                   typingSpeed={75}
                   pauseDuration={1500}
                   showCursor
@@ -103,7 +100,7 @@ export default function IndexPage() {
                 className="mt-3 font-heading text-lg text-muted-foreground sm:text-xl md:text-2xl"
               >
                 <BlurText
-                  text="Front-End Software Engineer"
+                  text={t("subtitle")}
                   delay={200}
                   animateBy="words"
                   direction="top"
@@ -113,12 +110,7 @@ export default function IndexPage() {
 
               <div className="mt-6 max-w-[42rem]">
                 <p className="text-sm leading-7 text-muted-foreground sm:text-base md:text-lg">
-                  Front-End Software Engineer specializing in React and Next.js,
-                  with experience building scalable, responsive, and
-                  production-ready web applications. Skilled in TypeScript,
-                  state management, API integration, and modern UI development,
-                  with a strong focus on clean architecture, performance, and
-                  delivering seamless user experiences.
+                  {t("description")}
                 </p>
               </div>
 
@@ -129,10 +121,10 @@ export default function IndexPage() {
                     href="AbdelghAffar Khairallah,Frontend Developer (2).pdf"
                     target="_blank"
                     className={cn(buttonVariants({ size: "lg" }))}
-                    aria-label="View resume"
+                    aria-label={t("viewResume")}
                   >
                     <Icons.post className="mr-2 h-4 w-4" />
-                    Resume
+                    {t("resume")}
                   </Link>
                 </AnimatedText>
 
@@ -146,10 +138,10 @@ export default function IndexPage() {
                         size: "lg",
                       })
                     )}
-                    aria-label="Contact Abdelghfar Khairallah"
+                    aria-label={t("contactAuthor")}
                   >
                     <Icons.contact className="mr-2 h-4 w-4" />
-                    Contact
+                    {t("contact")}
                   </Link>
                 </AnimatedText>
               </div>
@@ -318,14 +310,14 @@ export default function IndexPage() {
             as="h2"
             className="font-heading text-3xl leading-[1.1] sm:text-3xl md:text-6xl"
           >
-            {pagesConfig.projects.title}
+            {t("projectsTitle")}
           </AnimatedText>
           <AnimatedText
             as="p"
             delay={0.2}
             className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7"
           >
-            {pagesConfig.projects.description}
+            {t("projectsDescription")}
           </AnimatedText>
         </div>
         <div className="w-full">
@@ -345,7 +337,7 @@ export default function IndexPage() {
         <AnimatedText delay={0.4} className="flex justify-center">
           <Link href="/projects">
             <Button variant={"outline"} className="rounded-xl">
-              <Icons.chevronDown className="mr-2 h-4 w-4" /> View All
+              <Icons.chevronDown className="mr-2 h-4 w-4" /> {t("viewAllProjects")}
             </Button>
           </Link>
         </AnimatedText>
@@ -360,14 +352,14 @@ export default function IndexPage() {
             as="h2"
             className="font-heading text-3xl leading-[1.1] sm:text-3xl md:text-6xl"
           >
-            {pagesConfig.experience.title}
+            {t("experienceTitle")}
           </AnimatedText>
           <AnimatedText
             as="p"
             delay={0.2}
             className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7"
           >
-            {pagesConfig.experience.description}
+            {t("experienceDescription")}
           </AnimatedText>
         </div>
         <div className="mx-auto grid justify-center gap-4 md:w-full lg:grid-cols-3">
@@ -384,7 +376,7 @@ export default function IndexPage() {
         <AnimatedText delay={0.4} className="flex justify-center">
           <Link href="/experience">
             <Button variant={"outline"} className="rounded-xl">
-              <Icons.chevronDown className="mr-2 h-4 w-4" /> View All
+              <Icons.chevronDown className="mr-2 h-4 w-4" /> {t("viewAllExperience")}
             </Button>
           </Link>
         </AnimatedText>
@@ -399,21 +391,21 @@ export default function IndexPage() {
             as="h2"
             className="font-heading text-3xl leading-[1.1] sm:text-3xl md:text-6xl"
           >
-            {pagesConfig.skills.title}
+            {t("skillsTitle")}
           </AnimatedText>
           <AnimatedText
             as="p"
             delay={0.2}
             className="max-w-[85%] leading-normal text-muted-foreground sm:text-lg sm:leading-7"
           >
-            {pagesConfig.skills.description}
+            {t("skillsDescription")}
           </AnimatedText>
         </div>
         <SkillsCard skills={featuredSkills} />
         <AnimatedText delay={0.4} className="flex justify-center">
           <Link href="/skills">
             <Button variant={"outline"} className="rounded-xl">
-              <Icons.chevronDown className="mr-2 h-4 w-4" /> View All
+              <Icons.chevronDown className="mr-2 h-4 w-4" /> {t("viewAllSkills")}
             </Button>
           </Link>
         </AnimatedText>

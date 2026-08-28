@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { cn } from "@/lib/utils";
+import { useTranslations } from "next-intl";
 
 interface TabItem {
   value: string;
@@ -35,6 +36,7 @@ export function ResponsiveTabs({
     defaultValue || items[0]?.value
   );
   const activeItem = items.find((item) => item.value === activeTab);
+  const t = useTranslations("common");
   
   return (
     <div className={cn("w-full", className)}>
@@ -43,7 +45,7 @@ export function ResponsiveTabs({
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline" className="w-full justify-between">
-              {activeItem?.label || "Select option"}
+              {activeItem?.label || t("selectOption")}
               <ChevronDown className="h-4 w-4" />
             </Button>
           </DropdownMenuTrigger>

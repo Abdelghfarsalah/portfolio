@@ -5,19 +5,22 @@ import { Icons } from "@/components/common/icons";
 import { Button } from "@/components/ui/button";
 import ChipContainer from "@/components/ui/chip-container";
 import { ProjectInterface } from "@/config/projects";
+import { useTranslations } from "next-intl";
 
 interface ProjectCardProps {
   project: ProjectInterface;
 }
 
 export default function ProjectCard({ project }: ProjectCardProps) {
+  const t = useTranslations("common");
+  const projectT = useTranslations("projects");
   return (
     <div className="relative p-6 w-full bg-background border border-border rounded-lg h-full flex flex-col">
       <div className="relative w-full h-[200px] flex-shrink-0">
         <Image
           className="rounded-lg border border-border object-cover"
           src={project.companyLogoImg}
-          alt="img"
+          alt={project.companyName}
           fill
         />
       </div>
@@ -26,14 +29,14 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           {project.companyName}
         </h5>
         <p className="line-clamp-3 font-normal text-muted-foreground flex-grow">
-          {project.shortDescription}
+          {projectT(`items.${project.id}.shortDescription`)}
         </p>
         <div className="flex gap-2 flex-wrap">
-          <ChipContainer textArr={project.category} />
+          <ChipContainer textArr={project.category.map((category) => projectT(`categories.${category}`))} />
         </div>
         <Link href={`/projects/${project.id}`} className="mt-auto">
           <Button variant={"default"} className="mt-2 w-full sm:w-auto">
-            Read more
+            {t("readMore")}
             <Icons.chevronRight className="w-4 ml-1" />
           </Button>
         </Link>

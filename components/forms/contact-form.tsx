@@ -17,23 +17,17 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useModalStore } from "@/hooks/use-modal-store";
-
-const formSchema = z.object({
-  name: z.string().min(3, {
-    message: "Name must contain at least 3 characters.",
-  }),
-
-  email: z.string().email("Please enter a valid email."),
-
-  message: z.string().min(10, {
-    message: "Please write something more descriptive.",
-  }),
-
-  social: z.string().url().optional().or(z.literal("")),
-});
+import { useTranslations } from "next-intl";
 
 export function ContactForm() {
   const storeModal = useModalStore();
+  const t = useTranslations("contactForm");
+  const formSchema = z.object({
+    name: z.string().min(3, { message: t("nameError") }),
+    email: z.string().email(t("emailError")),
+    message: z.string().min(10, { message: t("messageError") }),
+    social: z.string().url().optional().or(z.literal("")),
+  });
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -76,9 +70,9 @@ async function onSubmit(values: z.infer<typeof formSchema>) {
       console.error("CONTACT API ERROR:", result.error);
 
       storeModal.onOpen({
-        title: "Something went wrong",
+        title: t("errorTitle"),
         description:
-          result.error || `Server error: ${response.status}`,
+          result.error || t("serverError", { status: response.status }),
         icon: null,
       });
 
@@ -89,20 +83,19 @@ async function onSubmit(values: z.infer<typeof formSchema>) {
     form.reset();
 
     storeModal.onOpen({
-      title: "Thank you!",
-      description:
-        "Your message has been received! I appreciate your contact and will get back to you shortly.",
+      title: t("successTitle"),
+      description: t("successDescription"),
       icon: Icons.successAnimated,
     });
   } catch (error) {
     console.error("FETCH ERROR:", error);
 
     storeModal.onOpen({
-      title: "Something went wrong",
+      title: t("errorTitle"),
       description:
         error instanceof Error
           ? error.message
-          : "Could not connect to the server.",
+          : t("connectionError"),
       icon:null,
     });
   }
@@ -119,11 +112,11 @@ async function onSubmit(values: z.infer<typeof formSchema>) {
           name="name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Name</FormLabel>
+              <FormLabel>{t("name")}</FormLabel>
 
               <FormControl>
                 <Input
-                  placeholder="Enter your name"
+                  placeholder={t("namePlaceholder")}
                   {...field}
                 />
               </FormControl>
@@ -138,12 +131,12 @@ async function onSubmit(values: z.infer<typeof formSchema>) {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Email</FormLabel>
+              <FormLabel>{t("email")}</FormLabel>
 
               <FormControl>
                 <Input
                   type="email"
-                  placeholder="Enter your email"
+                  placeholder={t("emailPlaceholder")}
                   {...field}
                 />
               </FormControl>
@@ -158,11 +151,11 @@ async function onSubmit(values: z.infer<typeof formSchema>) {
           name="message"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Message</FormLabel>
+              <FormLabel>{t("message")}</FormLabel>
 
               <FormControl>
                 <Textarea
-                  placeholder="Enter your message"
+                  placeholder={t("messagePlaceholder")}
                   {...field}
                 />
               </FormControl>
@@ -177,11 +170,11 @@ async function onSubmit(values: z.infer<typeof formSchema>) {
           name="social"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Social (optional)</FormLabel>
+              <FormLabel>{t("social")}</FormLabel>
 
               <FormControl>
                 <Input
-                  placeholder="Link for social account"
+                  placeholder={t("socialPlaceholder")}
                   {...field}
                 />
               </FormControl>
@@ -195,7 +188,7 @@ async function onSubmit(values: z.infer<typeof formSchema>) {
           type="submit"
           disabled={form.formState.isSubmitting}
         >
-          {form.formState.isSubmitting ? "Sending..." : "Submit"}
+          {form.formState.isSubmitting ? t("sending") : t("submit")}
         </Button>
       </form>
     </Form>

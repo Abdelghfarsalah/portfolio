@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import { getTranslations } from "next-intl/server";
 
 import { Icons } from "@/components/common/icons";
 import ProjectDescription from "@/components/projects/project-description";
@@ -26,6 +27,8 @@ export default async function Project({ params }: ProjectPageProps) {
   if (!project) {
     redirect("/projects");
   }
+  const t = await getTranslations("common");
+  const projectT = await getTranslations("projects");
 
   return (
     <article className="container relative max-w-3xl py-6 lg:py-10">
@@ -37,7 +40,7 @@ export default async function Project({ params }: ProjectPageProps) {
         )}
       >
         <Icons.chevronLeft className="mr-2 h-4 w-4" />
-        All Projects
+        {t("allProjects")}
       </Link>
       <div>
         <time
@@ -50,14 +53,14 @@ export default async function Project({ params }: ProjectPageProps) {
           {project.companyName}
           <div className="flex items-center">
             {project.githubLink && (
-              <CustomTooltip text="Link to the source code.">
+              <CustomTooltip text={t("linkToSource")}>
                 <Link href={project.githubLink} target="_blank">
                   <Icons.gitHub className="w-6 ml-4 text-muted-foreground hover:text-foreground" />
                 </Link>
               </CustomTooltip>
             )}
             {project.websiteLink && (
-              <CustomTooltip text="Please note that some project links may be temporarily unavailable.">
+              <CustomTooltip text={t("projectLinksNote")}>
                 <Link href={project.websiteLink} target="_blank">
                   <Icons.externalLink className="w-6 ml-4 text-muted-foreground hover:text-foreground " />
                 </Link>
@@ -65,7 +68,7 @@ export default async function Project({ params }: ProjectPageProps) {
             )}
           </div>
         </h1>
-        <ChipContainer textArr={project.category} />
+        <ChipContainer textArr={project.category.map((category) => projectT(`categories.${category}`))} />
         <div className="mt-4 flex space-x-4">
           <Link
             href={siteConfig.links.github}
@@ -100,25 +103,25 @@ export default async function Project({ params }: ProjectPageProps) {
 
       <div className="mb-7 ">
         <h2 className="inline-block font-heading text-3xl leading-tight lg:text-3xl mb-2">
-          Tech Stack
+          {t("techStack")}
         </h2>
         <ChipContainer textArr={project.techStack} />
       </div>
 
       <div className="mb-7 ">
         <h2 className="inline-block font-heading text-3xl leading-tight lg:text-3xl mb-2">
-          Description
+          {t("description")}
         </h2>
         {/* {<project.descriptionComponent />} */}
         <ProjectDescription
-          paragraphs={project.descriptionDetails.paragraphs}
-          bullets={project.descriptionDetails.bullets}
+          paragraphs={projectT.raw(`items.${project.id}.paragraphs`) as string[]}
+          bullets={projectT.raw(`items.${project.id}.bullets`) as string[]}
         />
       </div>
 
       <div className="mb-7 ">
         <h2 className="inline-block font-heading text-3xl leading-tight lg:text-3xl mb-5">
-          Page Info
+          {t("pageInfo")}
         </h2>
         {project.pagesInfoArr.map((page, ind) => (
           <div key={ind}>
@@ -126,7 +129,7 @@ export default async function Project({ params }: ProjectPageProps) {
               <Icons.star className="h-5 w-5 mr-2" /> {page.title}
             </h3>
             <div>
-              <p>{page.description}</p>
+              <p>{projectT(`items.${project.id}.pages.${ind}.description`)}</p>
               {page.imgArr.map((img, ind) => (
                 <Image
                   src={img}
@@ -150,7 +153,7 @@ export default async function Project({ params }: ProjectPageProps) {
           className={cn(buttonVariants({ variant: "ghost" }))}
         >
           <Icons.chevronLeft className="mr-2 h-4 w-4" />
-          All Projects
+          {t("allProjects")}
         </Link>
       </div>
     </article>

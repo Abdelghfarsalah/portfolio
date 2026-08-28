@@ -5,8 +5,11 @@ import CustomTooltip from "@/components/ui/custom-tooltip";
 import { routesConfig } from "@/config/routes";
 import { SocialLinks } from "@/config/socials";
 import { cn } from "@/lib/utils";
+import { useTranslations } from "next-intl";
 
 export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
+  const commonT = useTranslations("common");
+  const pagesT = useTranslations("pages");
   return (
     <footer className={cn("mt-16 border-t border-border ", className)}>
       <div className="container py-12">
@@ -19,26 +22,25 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
               Abdelghfar Khairallah
             </Link>
             <p className="mt-4 text-sm leading-7 text-muted-foreground">
-              Front-End Software Engineer building responsive, accessible, and
-              production-ready web applications with React and Next.js.
+              {commonT("footerDescription")}
             </p>
             <p className="mt-4 text-sm font-medium text-primary">
-              Available for freelance opportunities
+              {commonT("availableForFreelance")}
             </p>
           </div>
 
-          <nav aria-label="Footer navigation">
+          <nav aria-label={commonT("footerNavigation")}>
             <h2 className="text-sm font-semibold uppercase tracking-wider text-foreground">
-              Explore
+              {commonT("explore")}
             </h2>
             <div className="mt-4 grid gap-3">
-              {routesConfig.mainNav.map((item: { title: string; href: string }) => (
+              {routesConfig.mainNav.map((item: { title: string; translationKey?: string; href: string }) => (
                 <Link
                   key={item.href}
                   href={item.href}
                   className="w-fit text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
-                  {item.title}
+                  {item.translationKey ? pagesT(item.translationKey.replace("pages.", "").replace(".title", ".title")) : item.title}
                 </Link>
               ))}
             </div>
@@ -46,7 +48,7 @@ export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
 
           <div>
             <h2 className="text-sm font-semibold uppercase tracking-wider text-foreground">
-              Connect
+              {commonT("connect")}
             </h2>
             <div className="mt-4 grid gap-3">
               {SocialLinks.map((item) => (

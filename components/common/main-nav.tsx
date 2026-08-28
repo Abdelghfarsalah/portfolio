@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Norican } from "next/font/google";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { usePathname, useSelectedLayoutSegment } from "next/navigation";
 import * as React from "react";
 
@@ -10,6 +10,7 @@ import { Icons } from "@/components/common/icons";
 import { MobileNav } from "@/components/common/mobile-nav";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
+import { useTranslations } from "next-intl";
 
 interface MainNavProps {
   items?: any[];
@@ -41,6 +42,8 @@ export function MainNav({ items, children }: MainNavProps) {
   const segment = useSelectedLayoutSegment();
   const [showMobileMenu, setShowMobileMenu] = React.useState<boolean>(false);
   const pathname = usePathname();
+  const commonT = useTranslations("common");
+  const pagesT = useTranslations("pages");
 
   React.useEffect(() => {
     setShowMobileMenu(false);
@@ -55,7 +58,7 @@ export function MainNav({ items, children }: MainNavProps) {
       >
         <Link href="/" className="hidden items-center space-x-2 md:flex">
           <span className={cn(norican.className, "text-2xl")}>
-            Home
+            {commonT("home")}
           </span>
         </Link>
       </motion.div>
@@ -81,7 +84,9 @@ export function MainNav({ items, children }: MainNavProps) {
                   item.disabled && "cursor-not-allowed opacity-80"
                 )}
               >
-                {item.title}
+                {item.translationKey
+                  ? pagesT(item.translationKey.replace("pages.", ""))
+                  : item.title}
               </Link>
             </motion.div>
           ))}
@@ -94,7 +99,7 @@ export function MainNav({ items, children }: MainNavProps) {
         whileTap={{ scale: 0.95 }}
       >
         {showMobileMenu ? <Icons.close /> : <Icons.menu />}
-        <span className="font-bold">Menu</span>
+        <span className="font-bold">{commonT("menu")}</span>
       </motion.button>
       {showMobileMenu && items && (
         <MobileNav items={items}>{children}</MobileNav>

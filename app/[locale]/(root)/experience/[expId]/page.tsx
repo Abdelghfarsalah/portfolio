@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import Link from "next/link";
 import { redirect } from "next/navigation";
@@ -40,16 +41,17 @@ export async function generateMetadata({
 }: ExperienceDetailPageProps): Promise<Metadata> {
   const { expId } = await params;
   const experience = experiences.find((c) => c.id === expId);
+  const t = await getTranslations("experience");
 
   if (!experience) {
     return {
-      title: "Experience Not Found",
+      title: t("metadataNotFound"),
     };
   }
 
   return {
-    title: `${experience.position} at ${experience.company} | Experience`,
-    description: `Detailed information about my role as ${experience.position} at ${experience.company}.`,
+    title: t("metadataTitle", { position: experience.position, company: experience.company }),
+    description: t("metadataDescription", { position: experience.position, company: experience.company }),
     alternates: {
       canonical: `${siteConfig.url}/experience/${expId}`,
     },
@@ -61,6 +63,8 @@ export default async function ExperienceDetailPage({
 }: ExperienceDetailPageProps) {
   const { expId } = await params;
   const experience = experiences.find((c) => c.id === expId);
+  const t = await getTranslations("common");
+  const experienceT = await getTranslations("experience");
 
   if (!experience) {
     redirect("/experience");
@@ -69,15 +73,15 @@ export default async function ExperienceDetailPage({
   const tabItems = [
     {
       value: "summary",
-      label: "Summary",
+      label: t("summary"),
       content: (
         <AnimatedSection delay={0.3}>
           <div>
             <h3 className="font-semibold mb-4 text-sm uppercase tracking-wide text-muted-foreground">
-              Role Summary
+              {t("roleSummary")}
             </h3>
             <ul className="space-y-3">
-              {experience.description.map((desc, idx) => (
+              {(experienceT.raw(`description.${experience.id}`) as string[]).map((desc, idx) => (
                 <li
                   key={idx}
                   className="text-base leading-relaxed flex items-start gap-3"
@@ -93,15 +97,15 @@ export default async function ExperienceDetailPage({
     },
     {
       value: "achievements",
-      label: "Achievements",
+      label: t("achievements"),
       content: (
         <AnimatedSection delay={0.3}>
           <div>
             <h3 className="font-semibold mb-4 text-sm uppercase tracking-wide text-muted-foreground">
-              Key Achievements
+              {t("keyAchievements")}
             </h3>
             <ul className="space-y-3">
-              {experience.achievements.map((achievement, idx) => (
+              {(experienceT.raw(`achievements.${experience.id}`) as string[]).map((achievement, idx) => (
                 <li
                   key={idx}
                   className="text-base leading-relaxed flex items-start gap-3"
@@ -125,7 +129,7 @@ export default async function ExperienceDetailPage({
           <Button variant="ghost" size="sm" className="mb-4" asChild>
             <Link href="/experience">
               <Icons.chevronLeft className="mr-2 h-4 w-4" />
-              Back to Experience
+              {t("backToExperience")}
             </Link>
           </Button>
         </AnimatedSection>
@@ -193,7 +197,7 @@ export default async function ExperienceDetailPage({
           <Button variant="outline" asChild>
             <Link href="/experience">
               <Icons.chevronLeft className="mr-2 h-4 w-4" />
-              View All Experience
+              {t("viewAllExperience")}
             </Link>
           </Button>
         </AnimatedSection>

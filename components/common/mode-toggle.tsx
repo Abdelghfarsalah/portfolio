@@ -1,6 +1,7 @@
 "use client";
 
 import { useTheme } from "next-themes";
+import { useTranslations } from "next-intl";
 
 import { Icons } from "@/components/common/icons";
 import { Button } from "@/components/ui/button";
@@ -14,6 +15,7 @@ import {
 
 export function ModeToggle() {
   const { setTheme, theme } = useTheme();
+  const t = useTranslations("common");
 
   return (
     <DropdownMenu>
@@ -26,43 +28,43 @@ export function ModeToggle() {
           <Icons.paper className="absolute rotate-90 scale-0 transition-all paper:rotate-0 paper:scale-100" />
           <Icons.aurora className="absolute rotate-90 scale-0 transition-all aurora:rotate-0 aurora:scale-100" />
           <Icons.synthwave className="absolute rotate-90 scale-0 transition-all synthwave:rotate-0 synthwave:scale-100" />
-          <span className="sr-only">Toggle theme</span>
+          <span className="sr-only">{t("toggleTheme")}</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         <DropdownMenuItem onClick={() => setTheme("light")}>
           <Icons.sun className="mr-2 h-4 w-4" />
-          <span>Light</span>
+          <span>{t("themes.light")}</span>
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme("dark")}>
           <Icons.moon className="mr-2 h-4 w-4" />
-          <span>Dark</span>
+          <span>{t("themes.dark")}</span>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem onClick={() => setTheme("retro")}>
           <Icons.retro className="mr-2 h-4 w-4" />
-          <span>Retro</span>
+          <span>{t("themes.retro")}</span>
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme("cyberpunk")}>
           <Icons.cyberpunk className="mr-2 h-4 w-4" />
-          <span>Cyberpunk</span>
+          <span>{t("themes.cyberpunk")}</span>
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme("paper")}>
           <Icons.paper className="mr-2 h-4 w-4" />
-          <span>Paper</span>
+          <span>{t("themes.paper")}</span>
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme("aurora")}>
           <Icons.aurora className="mr-2 h-4 w-4" />
-          <span>Aurora</span>
+          <span>{t("themes.aurora")}</span>
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setTheme("synthwave")}>
           <Icons.synthwave className="mr-2 h-4 w-4" />
-          <span>Synthwave</span>
+          <span>{t("themes.synthwave")}</span>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem onClick={() => setTheme("system")}>
           <Icons.laptop className="mr-2 h-4 w-4" />
-          <span>System</span>
+          <span>{t("themes.system")}</span>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

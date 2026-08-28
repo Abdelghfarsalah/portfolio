@@ -1,11 +1,19 @@
 import Rating from "@/components/skills/rating";
 import { skillsInterface } from "@/config/skills";
+import { getTranslations } from "next-intl/server";
 
 interface SkillsCardProps {
   skills: skillsInterface[];
 }
 
-export default function SkillsCard({ skills }: SkillsCardProps) {
+export default async function SkillsCard({ skills }: SkillsCardProps) {
+  const t = await getTranslations("skills");
+  const translationKeys: Record<string, string> = {
+    "React.js": "reactJs",
+    "Next.js": "nextJs",
+    ".NET": "dotNet",
+  };
+
   return (
     <div className="mx-auto grid justify-center gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {skills.map((skill, id) => (
@@ -18,7 +26,7 @@ export default function SkillsCard({ skills }: SkillsCardProps) {
             <div className="space-y-2">
               <h3 className="font-bold">{skill.name}</h3>
               <p className="text-sm text-muted-foreground">
-                {skill.description}
+                {t(translationKeys[skill.name] ?? skill.name)}
               </p>
               <Rating stars={skill.rating} />
             </div>

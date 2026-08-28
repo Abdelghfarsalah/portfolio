@@ -1,31 +1,22 @@
 import { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 
 import PageContainer from "@/components/common/page-container";
 import Timeline from "@/components/experience/timeline";
 import { experiences } from "@/config/experience";
-import { pagesConfig } from "@/config/pages";
 import { siteConfig } from "@/config/site";
 
-export const metadata: Metadata = {
-  title: `${pagesConfig.experience.metadata.title} | Professional Experience Timeline`,
-  description: `${pagesConfig.experience.metadata.description} Explore my professional journey and career milestones in software development.`,
-  keywords: [
-    "experience timeline",
-    "professional experience",
-    "software developer experience",
-    "developer portfolio",
-    "work experience",
-  ],
-  alternates: {
-    canonical: `${siteConfig.url}/experience`,
-  },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("pages.experience");
+  return { title: t("title"), description: t("metadata"), alternates: { canonical: `${siteConfig.url}/experience` } };
+}
 
-export default function ExperiencePage() {
+export default async function ExperiencePage() {
+  const t = await getTranslations("pages.experience");
   return (
     <PageContainer
-      title={pagesConfig.experience.title}
-      description={pagesConfig.experience.description}
+      title={t("title")}
+      description={t("description")}
     >
       <Timeline experiences={experiences} />
     </PageContainer>

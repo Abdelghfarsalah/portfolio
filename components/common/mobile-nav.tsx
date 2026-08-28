@@ -1,10 +1,11 @@
 import { Norican } from "next/font/google";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import * as React from "react";
 
 import { siteConfig } from "@/config/site";
 import { useLockBody } from "@/hooks/use-lock-body";
 import { cn } from "@/lib/utils";
+import { useTranslations } from "next-intl";
 
 interface MobileNavProps {
   items: any[];
@@ -20,6 +21,8 @@ const norican = Norican({
 
 export function MobileNav({ items, children }: MobileNavProps) {
   useLockBody();
+  const commonT = useTranslations("common");
+  const pagesT = useTranslations("pages");
 
   return (
     <div
@@ -30,7 +33,7 @@ export function MobileNav({ items, children }: MobileNavProps) {
       <div className="relative z-20 grid gap-6 rounded-md bg-popover p-4 text-popover-foreground shadow-md">
         <Link href="/" className="flex items-center space-x-2">
           <span className={cn(norican.className, "text-2xl")}>
-              Home
+              {commonT("home")}
           </span>
         </Link>
         <nav className="grid grid-flow-row auto-rows-max text-sm">
@@ -43,7 +46,9 @@ export function MobileNav({ items, children }: MobileNavProps) {
                 item.disabled && "cursor-not-allowed opacity-60"
               )}
             >
-              {item.title}
+              {item.translationKey
+                ? pagesT(item.translationKey.replace("pages.", ""))
+                : item.title}
             </Link>
           ))}
         </nav>

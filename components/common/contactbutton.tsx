@@ -2,7 +2,8 @@
 
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
 
 interface MainNavProps {
   items?: any[];
@@ -26,6 +27,7 @@ const navItemVariants = {
 };
 
 export default function CustomContactButton() {
+  const t = useTranslations("common");
   return  <motion.div
               initial="hidden"
               animate="visible"
@@ -39,7 +41,7 @@ export default function CustomContactButton() {
                   "flex items-center text-lg font-medium transition-colors text-foreground/80 hover:text-foreground sm:text-sm ",
                 )}
               >
-                Contact
+                {t("contact")}
               </Link>
 </motion.div>;
 }

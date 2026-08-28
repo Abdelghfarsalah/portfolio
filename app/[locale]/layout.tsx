@@ -28,6 +28,7 @@ const fontHeading = localFont({
 
 interface RootLayoutProps {
   children: React.ReactNode;
+  params: Promise<{ locale: string }>;
 }
 
 export const metadata = {
@@ -99,11 +100,12 @@ export const metadata = {
   },
 };
 
-export default function RootLayout({ children }: RootLayoutProps) {
+export default async function RootLayout({ children, params }: RootLayoutProps) {
+  const { locale } = await params;
   const GA_ID = process.env.NEXT_PUBLIC_GOOGLE_MEASUREMENT_ID;
 
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"} suppressHydrationWarning>
       <head />
       <body
         className={cn(
