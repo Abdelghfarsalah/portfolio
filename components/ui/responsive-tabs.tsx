@@ -23,6 +23,7 @@ interface ResponsiveTabsProps {
   items: TabItem[];
   defaultValue?: string;
   className?: string;
+  numberofcolumns?: number;
 }
 
 export function ResponsiveTabs({
@@ -34,7 +35,7 @@ export function ResponsiveTabs({
     defaultValue || items[0]?.value
   );
   const activeItem = items.find((item) => item.value === activeTab);
-
+  
   return (
     <div className={cn("w-full", className)}>
       {/* Mobile: Dropdown */}
@@ -66,7 +67,7 @@ export function ResponsiveTabs({
       {/* Desktop: Tabs */}
       <div className="hidden md:block">
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="grid w-full grid-cols-2">
+          <TabsList className={`grid w-full grid-cols-${items.length || 2}`}>
             {items.map((item) => (
               <TabsTrigger key={item.value} value={item.value}>
                 {item.label}

@@ -133,7 +133,81 @@ export const Projects: ProjectInterface[] = [
 
       },
       },
+      {
+  id: "FlipBooks",
 
+  companyName: "FlipBooks",
+
+  type: "Professional",
+
+  websiteLink: "",
+  githubLink: "",
+
+  category: ["Frontend", "Web Dev"],
+
+  shortDescription:
+    "Interactive Arabic RTL flipbook presentation featuring a fullscreen video landing page, right-to-left page turning, touch swipe support, keyboard navigation, click navigation, and video content on the final page.",
+
+  techStack: [
+    "HTML5",
+    "CSS3",
+    "JavaScript",
+    "jQuery",
+    "Turn.js",
+    "jQuery TouchSwipe"
+  ],
+
+  startDate: new Date("2026-08-01"),
+
+  endDate: new Date("2026-08-27"),
+
+  companyLogoImg: "/projects/flipbooks/logo.png",
+
+  pagesInfoArr: [
+    {
+      title: "Fullscreen Video Landing",
+      description:
+        "Created a cinematic fullscreen video landing page with autoplay video that transitions users into the interactive flipbook when clicked.",
+      imgArr: ["/projects/flipbooks/001.png"],
+    },
+    {
+      title: "RTL Flipbook Experience",
+      description:
+        "Built a right-to-left flipbook optimized for Arabic content using Turn.js, with dynamic page loading and smooth page-turning animations.",
+      imgArr: ["/projects/flipbooks/002.png", "/projects/flipbooks/003.png"],
+    },
+    {
+      title: "Touch & Navigation",
+      description:
+        "Implemented mobile-friendly swipe gestures alongside keyboard arrow controls and click-based navigation for an accessible browsing experience.",
+      imgArr: ["/projects/flipbooks/004.png", "/projects/flipbooks/005.png"],
+    },
+    {
+      title: "Multimedia Final Page",
+      description:
+        "Added a video experience to the final flipbook page with an overlay link, creating an interactive multimedia ending for the presentation.",
+      imgArr: ["/projects/flipbooks/008.png"],
+    },
+  ],
+
+  descriptionDetails: {
+    paragraphs: [
+      "FlipBooks is an interactive flipbook-style web presentation designed primarily for Arabic and RTL content. The experience begins with a fullscreen cinematic video landing page and transitions into an animated digital book.",
+      "The flipbook uses Turn.js for page-turning animations and supports right-to-left navigation, touch gestures, keyboard controls, and click-based page navigation. The final page also includes embedded video content with an overlay link.",
+    ],
+
+    bullets: [
+      "Built a fullscreen autoplay video landing page that transitions into the flipbook experience.",
+      "Implemented a right-to-left flipbook optimized for Arabic content using Turn.js.",
+      "Added touch and swipe navigation for mobile and tablet devices using jQuery TouchSwipe.",
+      "Implemented keyboard navigation with left and right arrow keys.",
+      "Added click navigation by interacting with the left and right sides of the book.",
+      "Created a multimedia final page with embedded video and an overlay link.",
+      "Used dynamic page loading to improve the flipbook browsing experience.",
+      "Designed the experience using HTML5, CSS3, JavaScript, jQuery, Turn.js, and jQuery TouchSwipe.",
+    ],
+  },
+},
   
   
 ]

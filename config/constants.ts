@@ -24,7 +24,14 @@ export type ValidSkills =
   | "Framer Motion"
   | "Vercel"
   | "Tailwind CSS"
-  | "Next.js";
+  | "Next.js"
+  
+  | "HTML5"
+  |  "CSS3"
+  |  "JavaScript"
+  |  "jQuery"
+  |  "Turn.js"
+  |  "jQuery TouchSwipe";
 
 export type ValidCategory =
   | "Full Stack"

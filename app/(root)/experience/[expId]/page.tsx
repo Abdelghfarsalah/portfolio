@@ -184,7 +184,7 @@ export default async function ExperienceDetailPage({
             </CardHeader>
 
             <CardContent>
-              <ResponsiveTabs items={tabItems} defaultValue="summary" />
+              <ResponsiveTabs items={tabItems} numberofcolumns={3} defaultValue="summary" />
             </CardContent>
           </Card>
         </AnimatedSection>
