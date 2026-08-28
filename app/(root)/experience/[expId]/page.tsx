@@ -115,24 +115,7 @@ export default async function ExperienceDetailPage({
         </AnimatedSection>
       ),
     },
-    {
-      value: "skills",
-      label: "Skills",
-      content: (
-        <AnimatedSection delay={0.3}>
-          <div>
-            <h3 className="font-semibold mb-4 text-sm uppercase tracking-wide text-muted-foreground">
-              Technologies & Skills
-            </h3>
-            <ChipContainer textArr={experience.skills} />
-            <p className="mt-4 text-sm text-muted-foreground">
-              These are the primary technologies and skills utilized during my
-              time at {experience.company}.
-            </p>
-          </div>
-        </AnimatedSection>
-      ),
-    },
+ 
   ];
 
   return (

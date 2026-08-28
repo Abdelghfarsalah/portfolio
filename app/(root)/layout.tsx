@@ -1,6 +1,5 @@
 
 import CustomContactButton from "@/components/common/contactbutton";
-import ContactButton from "@/components/common/contactbutton";
 import { MainNav } from "@/components/common/main-nav";
 import { ModeToggle } from "@/components/common/mode-toggle";
 import { SiteFooter } from "@/components/common/site-footer";

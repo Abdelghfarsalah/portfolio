@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 
 export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
   return (
-    <footer className={cn("mt-16 border-t border-border", className)}>
+    <footer className={cn("mt-16 border-t border-border ", className)}>
       <div className="container py-12">
         <div className="grid gap-10 md:grid-cols-[1.5fr_1fr_1fr]">
           <div className="max-w-md">
