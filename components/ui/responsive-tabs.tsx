@@ -67,7 +67,9 @@ export function ResponsiveTabs({
       {/* Desktop: Tabs */}
       <div className="hidden md:block">
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className={`grid w-full grid-cols-${items.length || 2}`}>
+          <TabsList  style={{
+    gridTemplateColumns: `repeat(${items.length || 2}, minmax(0, 1fr))`,
+  }} className={`grid w-full`}>
             {items.map((item) => (
               <TabsTrigger key={item.value} value={item.value}>
                 {item.label}

@@ -25,7 +25,6 @@ export type ValidSkills =
   | "Vercel"
   | "Tailwind CSS"
   | "Next.js"
-  
   | "HTML5"
   |  "CSS3"
   |  "JavaScript"

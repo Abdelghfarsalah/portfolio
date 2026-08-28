@@ -52,7 +52,7 @@ export default function ProjectsPage() {
       title={pagesConfig.projects.title}
       description={pagesConfig.projects.description}
     >
-      <ResponsiveTabs items={tabItems} numberofcolumns={3} defaultValue="all" />
+      <ResponsiveTabs items={tabItems}  defaultValue="all" />
     </PageContainer>
   );
 }

@@ -13,7 +13,8 @@ import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { ModalProvider } from "@/providers/modal-provider";
 import ParticlesBackground from "@/components/shared/ParticlesBackground";
-
+import {NextIntlClientProvider} from 'next-intl';
+ 
 const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
@@ -21,7 +22,7 @@ const fontSans = FontSans({
 
 // Font files can be colocated inside of `pages`
 const fontHeading = localFont({
-  src: "../assets/fonts/CalSans-SemiBold.woff2",
+  src: "../../assets/fonts/CalSans-SemiBold.woff2",
   variable: "--font-heading",
 });
 
@@ -79,7 +80,7 @@ export const metadata = {
     shortcut: siteConfig.logoIcon,
     apple: siteConfig.logoIcon,
   },
-  manifest: `${siteConfig.url}/site.webmanifest`,
+  manifest: `${siteConfig.url}/manifest.webmanifest`,
   alternates: {
     canonical: siteConfig.url,
   },
@@ -128,7 +129,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
             "synthwave",
           ]}
         >
-          {children}
+         <NextIntlClientProvider>{children}</NextIntlClientProvider>
           <Analytics />
           <Toaster />
           <ModalProvider />
