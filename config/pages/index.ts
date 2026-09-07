@@ -1,4 +1,4 @@
-import { ValidPages } from "./constants";
+import { ValidPages } from "../constants";
 
 type PagesConfig = {
   [key in ValidPages]: {

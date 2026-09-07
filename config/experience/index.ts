@@ -1,4 +1,4 @@
-import { ValidSkills } from "./constants";
+import { ValidSkills } from "../constants";
 
 export interface ExperienceInterface {
   id: string;

@@ -12,6 +12,7 @@ import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { ModalProvider } from "@/providers/modal-provider";
 import { NextIntlClientProvider } from "next-intl";
+import ParticlesBackground from "@/components/ParticlesBackground";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -119,7 +120,7 @@ export default async function RootLayout({
           fontHeading.variable
         )}
       >
-      {/* <ParticlesBackground />  */}
+      <ParticlesBackground />
 
         <ThemeProvider
           attribute="class"

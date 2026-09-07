@@ -36,7 +36,6 @@
     "nodemailer": "^6.9.16",
     "opencode-ai": "^1.18.23",
     "particles.js": "^2.0.0",
-    "particlesjs": "^2.2.3",
     "postcss": "^8.5.8",
     "react": "19.2.0",
     "react-dom": "19.2.0",
