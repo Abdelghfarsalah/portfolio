@@ -1,4 +1,3 @@
-
 // @ts-ignore Next.js resolves global CSS imports during the build.
 import "./globals.css";
 
@@ -12,9 +11,8 @@ import { Toaster } from "@/components/ui/toaster";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { ModalProvider } from "@/providers/modal-provider";
-import ParticlesBackground from "@/components/shared/ParticlesBackground";
-import {NextIntlClientProvider} from 'next-intl';
- 
+import { NextIntlClientProvider } from "next-intl";
+
 const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
@@ -100,12 +98,19 @@ export const metadata = {
   },
 };
 
-export default async function RootLayout({ children, params }: RootLayoutProps) {
+export default async function RootLayout({
+  children,
+  params,
+}: RootLayoutProps) {
   const { locale } = await params;
   const GA_ID = process.env.NEXT_PUBLIC_GOOGLE_MEASUREMENT_ID;
 
   return (
-    <html lang={locale} dir={locale === "ar" ? "rtl" : "ltr"} suppressHydrationWarning>
+    <html
+      lang={locale}
+      dir={locale === "ar" ? "rtl" : "ltr"}
+      suppressHydrationWarning
+    >
       <head />
       <body
         className={cn(
@@ -113,9 +118,8 @@ export default async function RootLayout({ children, params }: RootLayoutProps) 
           fontSans.variable,
           fontHeading.variable
         )}
-
       >
-        <ParticlesBackground />
+      {/* <ParticlesBackground />  */}
 
         <ThemeProvider
           attribute="class"
@@ -131,7 +135,7 @@ export default async function RootLayout({ children, params }: RootLayoutProps) 
             "synthwave",
           ]}
         >
-         <NextIntlClientProvider>{children}</NextIntlClientProvider>
+          <NextIntlClientProvider>{children}</NextIntlClientProvider>
           <Analytics />
           <Toaster />
           <ModalProvider />

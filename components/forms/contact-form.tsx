@@ -17,10 +17,12 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useModalStore } from "@/hooks/use-modal-store";
+import { useRouter } from "@/i18n/navigation";
 import { useTranslations } from "next-intl";
 
 export function ContactForm() {
   const storeModal = useModalStore();
+  const router = useRouter();
   const t = useTranslations("contactForm");
   const formSchema = z.object({
     name: z.string().min(3, { message: t("nameError") }),
@@ -38,48 +40,7 @@ export function ContactForm() {
       social: "",
     },
   });
-async function onSubmit(values: z.infer<typeof formSchema>) {
-  try {
-    const response = await fetch("/api/contact", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(values),
-    });
-
-    // Read the response as TEXT first
-    const rawResponse = await response.text();
-
-    console.log("================================");
-    console.log("CONTACT STATUS:", response.status);
-    console.log("CONTACT RESPONSE:", rawResponse);
-    console.log("================================");
-
-    let result: { success?: boolean; error?: string } = {};
-
-    try {
-      result = JSON.parse(rawResponse);
-    } catch {
-      result = {
-        error: rawResponse || "Empty response from server",
-      };
-    }
-
-    if (!response.ok) {
-      console.error("CONTACT API ERROR:", result.error);
-
-      storeModal.onOpen({
-        title: t("errorTitle"),
-        description:
-          result.error || t("serverError", { status: response.status }),
-        icon: null,
-      });
-
-      return;
-    }
-
-    // Only reset after successful sending
+  function onSubmit() {
     form.reset();
 
     storeModal.onOpen({
@@ -87,19 +48,9 @@ async function onSubmit(values: z.infer<typeof formSchema>) {
       description: t("successDescription"),
       icon: Icons.successAnimated,
     });
-  } catch (error) {
-    console.error("FETCH ERROR:", error);
 
-    storeModal.onOpen({
-      title: t("errorTitle"),
-      description:
-        error instanceof Error
-          ? error.message
-          : t("connectionError"),
-      icon:null,
-    });
+    router.push("/contact");
   }
-}
 
   return (
     <Form {...form}>
@@ -115,10 +66,7 @@ async function onSubmit(values: z.infer<typeof formSchema>) {
               <FormLabel>{t("name")}</FormLabel>
 
               <FormControl>
-                <Input
-                  placeholder={t("namePlaceholder")}
-                  {...field}
-                />
+                <Input placeholder={t("namePlaceholder")} {...field} />
               </FormControl>
 
               <FormMessage />
@@ -154,10 +102,7 @@ async function onSubmit(values: z.infer<typeof formSchema>) {
               <FormLabel>{t("message")}</FormLabel>
 
               <FormControl>
-                <Textarea
-                  placeholder={t("messagePlaceholder")}
-                  {...field}
-                />
+                <Textarea placeholder={t("messagePlaceholder")} {...field} />
               </FormControl>
 
               <FormMessage />
@@ -173,10 +118,7 @@ async function onSubmit(values: z.infer<typeof formSchema>) {
               <FormLabel>{t("social")}</FormLabel>
 
               <FormControl>
-                <Input
-                  placeholder={t("socialPlaceholder")}
-                  {...field}
-                />
+                <Input placeholder={t("socialPlaceholder")} {...field} />
               </FormControl>
 
               <FormMessage />
@@ -184,10 +126,7 @@ async function onSubmit(values: z.infer<typeof formSchema>) {
           )}
         />
 
-        <Button
-          type="submit"
-          disabled={form.formState.isSubmitting}
-        >
+        <Button type="submit" disabled={form.formState.isSubmitting}>
           {form.formState.isSubmitting ? t("sending") : t("submit")}
         </Button>
       </form>
