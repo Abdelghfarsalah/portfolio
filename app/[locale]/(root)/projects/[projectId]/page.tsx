@@ -126,7 +126,8 @@ export default async function Project({ params }: ProjectPageProps) {
         {project.pagesInfoArr.map((page, ind) => (
           <div key={ind}>
             <h3 className="flex items-center font-heading text-xl leading-tight lg:text-xl mt-3">
-              <Icons.star className="h-5 w-5 mr-2" /> {page.title}
+              <Icons.star className="h-5 w-5 mr-2" />
+              {page.title ?? projectT(`items.${project.id}.pages.${ind}.title`)}
             </h3>
             <div>
               <p>{projectT(`items.${project.id}.pages.${ind}.description`)}</p>
