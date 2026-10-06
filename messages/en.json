@@ -229,6 +229,37 @@
           "2": {"description": "Implemented mobile-friendly swipe gestures alongside keyboard arrow controls and click-based navigation for an accessible browsing experience."},
           "3": {"description": "Added a video experience to the final flipbook page with an overlay link, creating an interactive multimedia ending for the presentation."}
         }
+      },
+      "FoodWagon": {
+        "shortDescription": "Modern food delivery landing page built with Next.js, TypeScript, Tailwind CSS, and next-intl, featuring responsive food discovery, offers, popular items, featured restaurants, and Arabic RTL support.",
+        "paragraphs": [
+          "Food Wagon is a modern food delivery landing page built with Next.js, TypeScript, and Tailwind CSS. The project focuses on creating a responsive and visually engaging food ordering experience.",
+          "The application includes a hero section, promotional offers, popular food items, featured restaurants, food categories, an install-app call-to-action, and footer navigation. Arabic and English localization is implemented using next-intl with RTL support for Arabic content.",
+          "The project is structured with reusable components and Redux Toolkit as the foundation for future API integration, allowing the application to be extended into a complete food ordering platform."
+        ],
+        "bullets": [
+          "Built a responsive food delivery landing page using Next.js and TypeScript.",
+          "Created a hero section with food delivery messaging, CTA, and search interface.",
+          "Implemented reusable promotional offer cards.",
+          "Built popular food item and restaurant card components.",
+          "Created a featured restaurants section using reusable UI components.",
+          "Added food category navigation for searching by food type.",
+          "Implemented an install-app call-to-action section.",
+          "Added Arabic and English localization using next-intl.",
+          "Implemented right-to-left RTL support for Arabic users.",
+          "Configured Redux Toolkit as the foundation for future API integration.",
+          "Created a reusable component-based architecture for future expansion.",
+          "Prepared the project structure for future login, cart, checkout, and backend integration."
+        ],
+        "pages": {
+          "0": {"title": "Hero Section", "description": "Created a responsive hero section with a strong food delivery call-to-action, search interface, and visually engaging food content."},
+          "1": {"title": "Food Offers", "description": "Built promotional offer cards to highlight discounts and food deals using reusable responsive components."},
+          "2": {"title": "Popular Items", "description": "Implemented a popular food section with reusable item cards displaying food images, names, descriptions, and ordering information."},
+          "3": {"title": "Featured Restaurants", "description": "Created a featured restaurants section that presents restaurant information through reusable responsive cards."},
+          "4": {"title": "Search by Food", "description": "Added food category navigation that allows users to explore different types of food through an organized and responsive interface."},
+          "5": {"title": "Install App Section", "description": "Designed an install-app call-to-action section encouraging users to continue their food ordering experience through a mobile application."},
+          "6": {"title": "Arabic RTL Support", "description": "Implemented Arabic and English localization with next-intl, including right-to-left layout support for Arabic users."}
+        }
       }
     }
   },
