@@ -212,7 +212,7 @@ githubLink: "https://github.com/Abdelghfarsalah/NovaMart",
   id: "FoodWagon",
   companyName: "FoodWagon",
   type: "Professional",
-  websiteLink: "",
+  websiteLink: "https://foodwagon-amber.vercel.app/ar/home",
   githubLink: "https://github.com/Abdelghfarsalah/foodwagon",
   category: ["Frontend", "Web Dev"],
 
